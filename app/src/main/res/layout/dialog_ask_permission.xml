@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardView"
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:theme="@style/Theme.MaterialComponents.Bridge"
+    android:visibility="visible"
+    app:cardBackgroundColor="@color/white"
+
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="?attr/splashBk"
+    app:strokeWidth="0dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        >
+
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"
+
+            tools:ignore="ContentDescription,UnusedAttribute" />
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/exitMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/arial"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/askMsg"
+                android:textAlignment="center"
+
+
+                android:textColor="?attr/splashBkTxt"
+
+                android:transitionName="signInHeader"
+                tools:ignore="AllCaps,RtlCompat" />
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+
+            <Button
+                android:id="@+id/btnAllow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+
+                android:gravity="center"
+                android:text="Allow storage access"
+
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textAlignment="center"
+                android:textColor="?attr/bodyBk1BkBtnTxt"
+                app:backgroundTint="?attr/bodyBk1BkBtn"
+
+                android:textAllCaps="true"
+
+                app:iconGravity="textStart"
+                android:includeFontPadding="false"
+                app:iconTint="@null"
+
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+
+                />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
+

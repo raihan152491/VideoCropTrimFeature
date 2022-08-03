@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="70dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="4dp"
+
+
+    android:background="@drawable/ripple_option"
+    >
+
+
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:id="@+id/card"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="4dp"
+        android:focusable="true"
+        android:clickable="true"
+        app:cardBackgroundColor="#2b2b2b"
+        app:cardCornerRadius="1dp"
+        app:strokeColor="#4b4b4b"
+        app:strokeWidth="1dp"
+        app:cardElevation="1dp"
+        app:rippleColor="?attr/bodyBk1Bk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+
+            android:text=""
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#bababa"
+            android:src="@drawable/a_cart"
+            app:layout_constraintEnd_toStartOf="@id/btnSave"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:drawableStart="@drawable/a_cart"
+            app:drawableTint="#bababa"
+
+            android:background="@color/transparent"
+            app:tint="?attr/topBarBkBtnTxt" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="2dp"
+
+
+
+        android:fontFamily="@font/arial"
+
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:text="Crop"
+        android:textAlignment="center"
+        android:textColor="?attr/bodyBk2BkText"
+        android:textSize="12sp"
+        android:textStyle="normal"
+
+
+        app:layout_constraintTop_toBottomOf="@id/card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+         />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

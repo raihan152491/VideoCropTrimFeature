@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+
+    android:visibility="visible"
+    app:cardBackgroundColor="?attr/splashBk"
+    android:background="@drawable/round_corners"
+    app:cardElevation="40dp"
+    app:cardPreventCornerOverlap="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:shapeAppearanceOverlay="@style/bottomSheetRound"
+    app:strokeColor="?attr/splashBk"
+    app:strokeWidth="0dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"
+
+            tools:ignore="ContentDescription,UnusedAttribute" />
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/exitMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/arial"
+                android:gravity="center"
+                android:text="Do you want to exit ?"
+                android:textAlignment="center"
+
+                android:textColor="?attr/bodyBk1BkSecondary"
+                android:textSize="18sp"
+                android:transitionName="signInHeader"
+                tools:ignore="AllCaps,RtlCompat" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+
+
+
+            <Button
+                android:id="@+id/extDialogBtnShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+                android:gravity="center"
+                android:text="No"
+                android:textAlignment="center"
+                android:textColor="?attr/splashBkTxt"
+                app:backgroundTint="@color/green_A700"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+
+                app:iconGravity="textStart"
+                android:includeFontPadding="false"
+                app:iconTint="@null"
+
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+
+                />
+
+            <Button
+                android:id="@+id/extDialogBtnExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+                android:gravity="center"
+                android:text="Yes"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/red_A700"
+
+                app:iconGravity="textStart"
+
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:iconTint="@null"
+
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+
+                />
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
+

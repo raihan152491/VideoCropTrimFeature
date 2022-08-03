@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/black"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolBar"
+            android:transitionName="toolBar"
+            android:elevation="24dp"
+            android:background="?attr/topBarBk"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="16sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="?attr/topBarBkBtnTxt"
+                android:src="@drawable/a_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:drawableStart="@drawable/a_back"
+                app:drawableTint="?attr/topBarBkBtnTxt"
+
+                android:background="@color/transparent"
+                app:tint="?attr/topBarBkBtnTxt" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Video"
+
+                android:textAlignment="center"
+
+                android:padding="4dp"
+                android:textStyle="normal"
+                android:textSize="16sp"
+
+                android:fontFamily="@font/arial"
+                android:textColor="?attr/topBarBkBtnTxt"
+
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="16sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="?attr/topBarBkBtnTxt"
+                android:src="@drawable/a_check"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:drawableStart="@drawable/a_check"
+                app:drawableTint="?attr/topBarBkBtnTxt"
+
+                android:background="@color/transparent"
+                app:tint="?attr/topBarBkBtnTxt" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <FrameLayout
+            android:id="@+id/videoViewFrame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolBar"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            >
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="wrap_content"
+
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolBar"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+
+                />
+        </FrameLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/play"
+            android:layout_margin="8dp"
+            android:layout_width="0dp"
+
+            android:elevation="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bodyBk1BkBtn"
+
+            android:fontFamily="@font/arial"
+            android:src="@drawable/a_play"
+            android:textAllCaps="false"
+            android:textColor="@color/bodyBk1BkBtn"
+
+
+            app:icon="@drawable/a_play"
+            app:iconTint="@color/bodyBk1BkBtnTxt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolBar"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            app:shapeAppearanceOverlay="@style/FabDiamondRect"
+            app:tint="@color/bodyBk1BkBtn" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1e1e1e"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/defaultBottomLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+
+                >
+                <LinearLayout
+                    android:id="@+id/btnSection"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    android:minHeight="40dp"
+                    android:background="@drawable/trim_top_btm_border"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:id="@+id/btnPlay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:textSize="16sp"
+
+                        android:layout_marginEnd="1dp"
+                        android:padding="8dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:text=""
+
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/topBarBkBtnTxt"
+                        android:src="@drawable/a_play_arrow"
+
+                        android:drawableStart="@drawable/a_play_arrow"
+                        app:drawableTint="?attr/topBarBkBtnTxt"
+                        android:background="@color/topBarBk"
+                        app:tint="?attr/topBarBkBtnTxt"
+                        app:layout_constraintStart_toStartOf="parent"
+
+
+                        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/btnSimple"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Simple"
+                        android:layout_gravity="center_vertical"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:background="@color/topBarBk"
+
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+
+                        android:fontFamily="@font/arial"
+                        android:textColor="?attr/topBarBkBtnTxt"
+
+
+
+
+                        tools:ignore="RtlCompat" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:background="@color/topBarBk"
+                        >
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="20dp"
+                            android:background="@color/grey"
+                            android:layout_gravity="center"
+
+                            />
+                    </LinearLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/btnAdvanced"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Advanced"
+                        android:layout_gravity="center_vertical"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:background="@color/topBarBk"
+
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+
+                        android:fontFamily="@font/arial"
+                        android:textColor="?attr/topBarBkBtnTxt"
+
+
+
+
+                        tools:ignore="RtlCompat" />
+
+                    <ImageView
+                        android:id="@+id/btnCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:textSize="16sp"
+
+                        android:layout_marginStart="1dp"
+                        android:padding="8dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:text=""
+
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/topBarBkBtnTxt"
+                        android:src="@drawable/a_camera"
+
+                        android:drawableStart="@drawable/a_camera"
+                        app:drawableTint="?attr/topBarBkBtnTxt"
+                        android:background="@color/topBarBk"
+                        app:tint="?attr/topBarBkBtnTxt"
+                        app:layout_constraintStart_toStartOf="parent"
+
+
+                        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+
+                        />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnSection"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="35dp"
+                    >
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardBackgroundColor="@color/transparent"
+                        app:cardElevation="0dp"
+                        app:cardCornerRadius="8dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#f4f3f3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+
+                            android:orientation="horizontal"
+                            >
+                            <ImageView
+                                android:id="@+id/thumbImage1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+                            <ImageView
+                                android:id="@+id/thumbImage2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+                            <ImageView
+                                android:id="@+id/thumbImage3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+                            <ImageView
+                                android:id="@+id/thumbImage4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+                            <ImageView
+                                android:id="@+id/thumbImage5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+                            <ImageView
+                                android:id="@+id/thumbImage6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+                                />
+
+
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <SeekBar
+                        android:id="@+id/videoSeekbar"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:thumb="@drawable/seek_bar_thumb"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@color/transparent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

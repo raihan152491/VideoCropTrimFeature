@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:theme="@style/Theme.MaterialComponents.Bridge"
+    android:visibility="visible"
+    app:cardBackgroundColor="@color/white"
+
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="?attr/splashBk"
+    app:strokeWidth="0dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/arial"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/permissionHeading"
+            android:textAlignment="center"
+
+
+            android:textSize="16sp"
+            android:textColor="?attr/splashBkTxt"
+
+            android:transitionName="signInHeader"
+            tools:ignore="AllCaps,RtlCompat" />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/exitMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/arial"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/permissionMsg"
+                android:textAlignment="textStart"
+
+
+                android:textColor="?attr/splashBkTxt"
+
+                android:transitionName="signInHeader"
+                tools:ignore="AllCaps,RtlCompat" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <Button
+                android:id="@+id/extDialogBtnExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+
+                android:gravity="center"
+                android:text="Not Now"
+
+
+                android:textStyle="bold"
+                android:textColor="?attr/bodyBk1BkBtnSecondary"
+                app:backgroundTint="@color/transparent"
+                android:background="@color/transparent"
+
+                app:iconGravity="textStart"
+
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                app:iconTint="@null"
+
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+
+                />
+            <Button
+                android:id="@+id/extDialogBtnShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+
+                android:gravity="center"
+                android:text="Settings"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="?attr/bodyBk1BkBtn"
+                app:backgroundTint="@color/transparent"
+                android:background="@color/transparent"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+
+                app:iconGravity="textStart"
+                android:includeFontPadding="false"
+                app:iconTint="@null"
+
+                app:strokeColor="?attr/bodyBk1BkBtn"
+                app:strokeWidth="0dp"
+
+                />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+
+        <!--                <ImageView-->
+
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:src="@drawable/make_a_call" />-->
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
+

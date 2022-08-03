@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+
+
+    <!--Basic color-->
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#808000</color>
+    <color name="fuchsia">#FF00FF</color>
+    <color name="red">#FF0000</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="gray">#808080</color>
+    <color name="olive">#808000</color>
+    <color name="purple">#800080</color>
+    <color name="maroon">#800000</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="lime">#00FF00</color>
+    <color name="teal">#008080</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="navy">#000080</color>
+    <color name="black">#000000</color>
+    <color name="grey_text">#6C6C6C</color>
+    <color name="specific1">#FFE400</color>
+    <color name="red_A700">#D50000</color>
+    <color name="green_A700">#00C853</color>
+    <color name="blue_A700">#2962FF</color>
+    <color name="transparent">#002A363F</color>
+
+
+
+    <!--************************** Main theme End******************************************-->
+
+    <color name="themeMainPrimary1">#f19715</color>
+    <color name="themeMainPrimary2">#FFFFFF</color>
+    <color name="themeMainPrimary3">#0099cb</color>
+    <color name="themeMainPrimary4">#04c38f</color>
+
+    <color name="colorAccent">#000000</color>
+    <color name="colorPrimary">#f6c290</color>
+    <color name="colorPrimaryDark">#002A363F</color>
+    <color name="colorPrimaryVariant">#FFFFFF</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSecondary">#FFFFFF</color>
+    <color name="colorSecondaryVariant">#FFFFFF</color>
+
+
+    <color name="specialBk">#FFE400</color>
+    <color name="specialHlt">#FFE400</color>
+    <color name="specialIcon">#FFE400</color>
+    <color name="specialBtn">#FFE400</color>
+    <color name="specialBtnTxt">#FFE400</color>
+    <color name="specialTxt">#6C6C6C</color>
+    <color name="specialHint">#FFE400</color>
+
+
+    <color name="dashboardBack">#f6c290</color>
+    <color name="owner">#ff735c</color>
+    <color name="booking">#5ae4a8</color>
+    <color name="importing">#4f53ff</color>
+    <color name="ecommerce">#FFE400</color>
+    <color name="formBackGround">#F5F5F5</color>
+    <color name="grey">#808080</color>
+
+
+    <color name="splashBk">#000000</color>
+    <color name="splashBkTxt">#000000</color>
+    <color name="splashBkTxtSecond">#FFE400</color>
+    <color name="webTop">#FFFFFF</color>
+    <color name="webTxt">@color/themeMainPrimary4</color>
+    <color name="webBtm">#FFFFFF</color>
+
+    <color name="topBarBk">#1e1e1e</color>
+    <color name="topBarBkSecondary">#F9F9F9</color>
+    <color name="topBarBkText">@color/themeMainPrimary1</color>
+    <color name="topBarBkTextSecondary">#FFE400</color>
+    <color name="topBarBkHint">#3a3a3a</color>
+    <color name="topBarBkHintSecondary">#FFE400</color>
+    <color name="topBarBkIcon">#000000</color>
+    <color name="topBarBkIconSecondary">#FFFFFF</color>
+    <color name="topBarBkBtn">@color/themeMainPrimary1</color>
+    <color name="topBarBkBtnSecondary">#FFE400</color>
+    <color name="topBarBkBtnTxt">#FFFFFF</color>
+    <color name="topBarBkBtnTxtSecondary">#FFE400</color>
+    <color name="topBarBkHlt">@color/themeMainPrimary1</color>
+    <color name="topBarBkHltSecondary">#FFE400</color>
+
+
+    <color name="btmBarBk">#000000</color>
+    <color name="btmBarBkSecondary">#F9F9F9</color>
+    <color name="btmBarBkText">#000000</color>
+    <color name="btmBarBkTextSecondary">#FFE400</color>
+    <color name="btmBarBkHint">#FFE400</color>
+    <color name="btmBarBkHintSecondary">#FFE400</color>
+    <color name="btmBarBkIcon">#000000</color>
+    <color name="btmBarBkIconSecondary">#FFE400</color>
+    <color name="btmBarBkBtn">@color/bodyBk2Bk</color>
+    <color name="btmBarBkBtnSecondary">#FFE400</color>
+    <color name="btmBarBkBtnTxt">@color/themeMainPrimary1</color>
+    <color name="btmBarBkBtnTxtSecondary">#FFE400</color>
+    <color name="btmBarBkHlt">@color/themeMainPrimary1</color>
+    <color name="btmBarBkHltSecondary">#FFE400</color>
+
+
+    <color name="navBarBk">#000000</color>
+    <color name="navBarBkSecondary">#FFE400</color>
+    <color name="navBarBkText">#000000</color>
+    <color name="navBarBkTextSecondary">#FFE400</color>
+    <color name="navBarBkHint">#FFE400</color>
+    <color name="navBarBkHintSecondary">#FFE400</color>
+    <color name="navBarBkIcon">@color/themeMainPrimary1</color>
+    <color name="navBarBkIconSecondary">#FFE400</color>
+    <color name="navBarBkBtn">#07D1FF</color>
+    <color name="navBarBkBtnSecondary">#F8D71E</color>
+    <color name="navBarBkBtnTxt">#000000</color>
+    <color name="navBarBkBtnTxtSecondary">#000000</color>
+    <color name="navBarBkHlt">@color/themeMainPrimary1</color>
+    <color name="navBarBkHltSecondary">#FFE400</color>
+
+
+    <color name="bodyBk1Bk">#000000</color>
+    <color name="bodyBk1BkSecondary">#F9F9F9</color>
+    <color name="bodyBk1BkText">#000000</color>
+    <color name="bodyBk1BkTextSecondary">@color/themeMainPrimary1</color>
+    <color name="bodyBk1BkHint">#6C6C6C</color>
+    <color name="bodyBk1BkHintSecondary">#FFE400</color>
+    <color name="bodyBk1BkIcon">#FFE400</color>
+    <color name="bodyBk1BkIconSecondary">#FFE400</color>
+    <color name="bodyBk1BkBtn">@color/themeMainPrimary1</color>
+    <color name="bodyBk1BkBtnSecondary">#000000</color>
+    <color name="bodyBk1BkBtnTxt">#FFFFFF</color>
+    <color name="bodyBk1BkBtnTxtSecondary">#000000</color>
+    <color name="bodyBk1BkHlt">@color/themeMainPrimary1</color>
+    <color name="bodyBk1BkHltSecondary">#FFE400</color>
+
+
+    <color name="bodyBk2Bk">#F9F9F9</color>
+    <color name="bodyBk2BkSecondary">#FFE400</color>
+    <color name="bodyBk2BkText">@color/themeMainPrimary2</color>
+    <color name="bodyBk2BkTextSecondary">#000000</color>
+    <color name="bodyBk2BkHint">#FFE400</color>
+    <color name="bodyBk2BkHintSecondary">#FFE400</color>
+    <color name="bodyBk2BkIcon">@color/themeMainPrimary2</color>
+    <color name="bodyBk2BkIconSecondary">#FFE400</color>
+    <color name="bodyBk2BkBtn">#000000</color>
+    <color name="bodyBk2BkBtnSecondary">@color/themeMainPrimary1</color>
+    <color name="bodyBk2BkBtnTxt">#04c38f</color>
+    <color name="bodyBk2BkBtnTxtSecondary">#FFFFFF</color>
+    <color name="bodyBk2BkHlt">@color/themeMainPrimary2</color>
+    <color name="bodyBk2BkHltSecondary">#FFE400</color>
+
+
+    <color name="bodyBk3Bk">#FFFFFF</color>
+    <color name="bodyBk3BkSecondary">#FFE400</color>
+    <color name="bodyBk3BkText">@color/themeMainPrimary3</color>
+    <color name="bodyBk3BkTextSecondary">#000000</color>
+    <color name="bodyBk3BkHint">#FFE400</color>
+    <color name="bodyBk3BkHintSecondary">#FFE400</color>
+    <color name="bodyBk3BkIcon">#FFE400</color>
+    <color name="bodyBk3BkIconSecondary">#FFE400</color>
+    <color name="bodyBk3BkBtn">#04c38f</color>
+    <color name="bodyBk3BkBtnSecondary">#141414</color>
+    <color name="bodyBk3BkBtnTxt">#FFFFFF</color>
+    <color name="bodyBk3BkBtnTxtSecondary">#04c38f</color>
+    <color name="bodyBk3BkHlt">@color/themeMainPrimary3</color>
+    <color name="bodyBk3BkHltSecondary">#FFFFFF</color>
+
+
+    <color name="windowBackground">#FFE400</color>
+    <color name="statusBarColor">#FFE400</color>
+    <color name="navigationBarColor">#FFE400</color>
+
+
+
+</resources>

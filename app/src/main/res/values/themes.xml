@@ -1,0 +1,155 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+
+    <!-- Base application theme -->
+
+
+    <style name="ThemeMain" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+
+        <!-- Primary brand color. -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <item name="specialBk">@color/specialBk</item>
+        <item name="specialHlt">@color/specialHlt</item>
+        <item name="specialIcon">@color/specialIcon</item>
+        <item name="specialBtn">@color/specialBtn</item>
+        <item name="specialBtnTxt">@color/specialBtnTxt</item>
+        <item name="specialTxt">@color/specialTxt</item>
+        <item name="specialHint">@color/specialHint</item>
+
+
+        <item name="splashBk">@color/splashBk</item>
+        <item name="splashBkTxt">@color/splashBkTxt</item>
+        <item name="splashBkTxtSecond">@color/splashBkTxtSecond</item>
+
+
+        <item name="webTop">@color/webTop</item>
+        <item name="webTxt">@color/webTxt</item>
+        <item name="webBtm">@color/webBtm</item>
+
+        <!--top bar-->
+        <item name="topBarBk">@color/topBarBk</item>
+        <item name="topBarBkSecondary">@color/topBarBkSecondary</item>
+        <item name="topBarBkText">@color/topBarBkText</item>
+        <item name="topBarBkTextSecondary">@color/topBarBkTextSecondary</item>
+        <item name="topBarBkHint">@color/topBarBkHint</item>
+        <item name="topBarBkHintSecondary">@color/topBarBkHintSecondary</item>
+        <item name="topBarBkIcon">@color/topBarBkIcon</item>
+        <item name="topBarBkIconSecondary">@color/topBarBkIconSecondary</item>
+        <item name="topBarBkBtn">@color/topBarBkBtn</item>
+        <item name="topBarBkBtnSecondary">@color/topBarBkBtnSecondary</item>
+        <item name="topBarBkBtnTxt">@color/topBarBkBtnTxt</item>
+        <item name="topBarBkBtnTxtSecondary">@color/topBarBkBtnTxtSecondary</item>
+        <item name="topBarBkHlt">@color/topBarBkHlt</item>
+        <item name="topBarBkHltSecondary">@color/topBarBkHltSecondary</item>
+
+        <!--btm bar-->
+        <item name="btmBarBk">@color/btmBarBk</item>
+        <item name="btmBarBkSecondary">@color/btmBarBkSecondary</item>
+        <item name="btmBarBkText">@color/btmBarBkText</item>
+        <item name="btmBarBkTextSecondary">@color/btmBarBkTextSecondary</item>
+        <item name="btmBarBkHint">@color/btmBarBkHint</item>
+        <item name="btmBarBkHintSecondary">@color/btmBarBkHintSecondary</item>
+        <item name="btmBarBkIcon">@color/btmBarBkIcon</item>
+        <item name="btmBarBkIconSecondary">@color/btmBarBkIconSecondary</item>
+        <item name="btmBarBkBtn">@color/btmBarBkBtn</item>
+        <item name="btmBarBkBtnSecondary">@color/btmBarBkBtnSecondary</item>
+        <item name="btmBarBkBtnTxt">@color/btmBarBkBtnTxt</item>
+        <item name="btmBarBkBtnTxtSecondary">@color/btmBarBkBtnTxtSecondary</item>
+        <item name="btmBarBkHlt">@color/btmBarBkHlt</item>
+        <item name="btmBarBkHltSecondary">@color/btmBarBkHltSecondary</item>
+
+
+        <!--nav bar-->
+        <item name="navBarBk">@color/navBarBk</item>
+        <item name="navBarBkSecondary">@color/navBarBkSecondary</item>
+        <item name="navBarBkText">@color/navBarBkText</item>
+        <item name="navBarBkTextSecondary">@color/navBarBkTextSecondary</item>
+        <item name="navBarBkHint">@color/navBarBkHint</item>
+        <item name="navBarBkHintSecondary">@color/navBarBkHintSecondary</item>
+        <item name="navBarBkIcon">@color/navBarBkIcon</item>
+        <item name="navBarBkIconSecondary">@color/navBarBkIconSecondary</item>
+        <item name="navBarBkBtn">@color/navBarBkBtn</item>
+        <item name="navBarBkBtnSecondary">@color/navBarBkBtnSecondary</item>
+        <item name="navBarBkBtnTxt">@color/navBarBkBtnTxt</item>
+        <item name="navBarBkBtnTxtSecondary">@color/navBarBkBtnTxtSecondary</item>
+        <item name="navBarBkHlt">@color/navBarBkHlt</item>
+        <item name="navBarBkHltSecondary">@color/navBarBkHltSecondary</item>
+
+
+        <!--bodyBk 1-->
+        <item name="bodyBk1Bk">@color/bodyBk1Bk</item>
+        <item name="bodyBk1BkSecondary">@color/bodyBk1BkSecondary</item>
+        <item name="bodyBk1BkText">@color/bodyBk1BkText</item>
+        <item name="bodyBk1BkTextSecondary">@color/bodyBk1BkTextSecondary</item>
+        <item name="bodyBk1BkHint">@color/bodyBk1BkHint</item>
+        <item name="bodyBk1BkHintSecondary">@color/bodyBk1BkHintSecondary</item>
+        <item name="bodyBk1BkIcon">@color/bodyBk1BkIcon</item>
+        <item name="bodyBk1BkIconSecondary">@color/bodyBk1BkIconSecondary</item>
+        <item name="bodyBk1BkBtn">@color/bodyBk1BkBtn</item>
+        <item name="bodyBk1BkBtnSecondary">@color/bodyBk1BkBtnSecondary</item>
+        <item name="bodyBk1BkBtnTxt">@color/bodyBk1BkBtnTxt</item>
+        <item name="bodyBk1BkBtnTxtSecondary">@color/bodyBk1BkBtnTxtSecondary</item>
+        <item name="bodyBk1BkHlt">@color/bodyBk1BkHlt</item>
+        <item name="bodyBk1BkHltSecondary">@color/bodyBk1BkHltSecondary</item>
+
+        <!--bodyBk 2-->
+        <item name="bodyBk2Bk">@color/bodyBk2Bk</item>
+        <item name="bodyBk2BkSecondary">@color/bodyBk2BkSecondary</item>
+        <item name="bodyBk2BkText">@color/bodyBk2BkText</item>
+        <item name="bodyBk2BkTextSecondary">@color/bodyBk2BkTextSecondary</item>
+        <item name="bodyBk2BkHint">@color/bodyBk2BkHint</item>
+        <item name="bodyBk2BkHintSecondary">@color/bodyBk2BkHintSecondary</item>
+        <item name="bodyBk2BkIcon">@color/bodyBk2BkIcon</item>
+        <item name="bodyBk2BkIconSecondary">@color/bodyBk2BkIconSecondary</item>
+        <item name="bodyBk2BkBtn">@color/bodyBk2BkBtn</item>
+        <item name="bodyBk2BkBtnSecondary">@color/bodyBk2BkBtnSecondary</item>
+        <item name="bodyBk2BkBtnTxt">@color/bodyBk2BkBtnTxt</item>
+        <item name="bodyBk2BkBtnTxtSecondary">@color/bodyBk2BkBtnTxtSecondary</item>
+        <item name="bodyBk2BkHlt">@color/bodyBk2BkHlt</item>
+        <item name="bodyBk2BkHltSecondary">@color/bodyBk2BkHltSecondary</item>
+
+        <!--bodyBk 3-->
+        <item name="bodyBk3Bk">@color/bodyBk3Bk</item>
+        <item name="bodyBk3BkSecondary">@color/bodyBk3BkSecondary</item>
+        <item name="bodyBk3BkText">@color/bodyBk3BkText</item>
+        <item name="bodyBk3BkTextSecondary">@color/bodyBk3BkTextSecondary</item>
+        <item name="bodyBk3BkHint">@color/bodyBk3BkHint</item>
+        <item name="bodyBk3BkHintSecondary">@color/bodyBk3BkHintSecondary</item>
+        <item name="bodyBk3BkIcon">@color/bodyBk3BkIcon</item>
+        <item name="bodyBk3BkIconSecondary">@color/bodyBk3BkIconSecondary</item>
+        <item name="bodyBk3BkBtn">@color/bodyBk3BkBtn</item>
+        <item name="bodyBk3BkBtnSecondary">@color/bodyBk3BkBtnSecondary</item>
+        <item name="bodyBk3BkBtnTxt">@color/bodyBk3BkBtnTxt</item>
+        <item name="bodyBk3BkBtnTxtSecondary">@color/bodyBk3BkBtnTxtSecondary</item>
+        <item name="bodyBk3BkHlt">@color/bodyBk3BkHlt</item>
+        <item name="bodyBk3BkHltSecondary">@color/bodyBk3BkHltSecondary</item>
+
+        <!--        built in-->
+        <item name="android:windowBackground">?attr/splashBk</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/splashBk</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?attr/splashBk</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ThemeMain.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeMain.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ThemeMain.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

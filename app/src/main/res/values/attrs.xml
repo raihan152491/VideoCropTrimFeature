@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="InsideTouch">
+
+        <attr name="insideTouch" format="boolean"/>
+    </declare-styleable>
+
+
+
+
+<!--    /// New ThemeStyle Attribute-->
+
+
+
+    <attr name="specialBk" format="color"/>
+    <attr name="specialHlt" format="color"/>
+    <attr name="specialIcon" format="color"/>
+    <attr name="specialBtn" format="color"/>
+    <attr name="specialBtnTxt" format="color"/>
+    <attr name="specialTxt" format="color"/>
+    <attr name="specialHint" format="color"/>
+
+    <attr name="splashBk" format="color"/>
+    <attr name="splashBkTxt" format="color"/>
+    <attr name="splashBkTxtSecond" format="color"/>
+
+
+    <attr name="webTop" format="color"/>
+    <attr name="webTxt" format="color"/>
+    <attr name="webBtm" format="color"/>
+
+
+    <attr name="topBarBk" format="color"/>
+    <attr name="topBarBkSecondary" format="color"/>
+    <attr name="topBarBkText" format="color"/>
+    <attr name="topBarBkTextSecondary" format="color"/>
+    <attr name="topBarBkHint" format="color"/>
+    <attr name="topBarBkHintSecondary" format="color"/>
+    <attr name="topBarBkIcon" format="color"/>
+    <attr name="topBarBkIconSecondary" format="color"/>
+    <attr name="topBarBkBtn" format="color"/>
+    <attr name="topBarBkBtnSecondary" format="color"/>
+    <attr name="topBarBkBtnTxt" format="color"/>
+    <attr name="topBarBkBtnTxtSecondary" format="color"/>
+    <attr name="topBarBkHlt" format="color"/>
+    <attr name="topBarBkHltSecondary" format="color"/>
+
+
+    <attr name="btmBarBk" format="color"/>
+    <attr name="btmBarBkSecondary" format="color"/>
+    <attr name="btmBarBkText" format="color"/>
+    <attr name="btmBarBkTextSecondary" format="color"/>
+    <attr name="btmBarBkHint" format="color"/>
+    <attr name="btmBarBkHintSecondary" format="color"/>
+    <attr name="btmBarBkIcon" format="color"/>
+    <attr name="btmBarBkIconSecondary" format="color"/>
+    <attr name="btmBarBkBtn" format="color"/>
+    <attr name="btmBarBkBtnSecondary" format="color"/>
+    <attr name="btmBarBkBtnTxt" format="color"/>
+    <attr name="btmBarBkBtnTxtSecondary" format="color"/>
+    <attr name="btmBarBkHlt" format="color"/>
+    <attr name="btmBarBkHltSecondary" format="color"/>
+
+    <attr name="navBarBk" format="color"/>
+    <attr name="navBarBkSecondary" format="color"/>
+    <attr name="navBarBkText" format="color"/>
+    <attr name="navBarBkTextSecondary" format="color"/>
+    <attr name="navBarBkHint" format="color"/>
+    <attr name="navBarBkHintSecondary" format="color"/>
+    <attr name="navBarBkIcon" format="color"/>
+    <attr name="navBarBkIconSecondary" format="color"/>
+    <attr name="navBarBkBtn" format="color"/>
+    <attr name="navBarBkBtnSecondary" format="color"/>
+    <attr name="navBarBkBtnTxt" format="color"/>
+    <attr name="navBarBkBtnTxtSecondary" format="color"/>
+    <attr name="navBarBkHlt" format="color"/>
+    <attr name="navBarBkHltSecondary" format="color"/>
+
+    <attr name="bodyBk1Bk" format="color"/>
+    <attr name="bodyBk1BkSecondary" format="color"/>
+    <attr name="bodyBk1BkText" format="color"/>
+    <attr name="bodyBk1BkTextSecondary" format="color"/>
+    <attr name="bodyBk1BkHint" format="color"/>
+    <attr name="bodyBk1BkHintSecondary" format="color"/>
+    <attr name="bodyBk1BkIcon" format="color"/>
+    <attr name="bodyBk1BkIconSecondary" format="color"/>
+    <attr name="bodyBk1BkBtn" format="color"/>
+    <attr name="bodyBk1BkBtnSecondary" format="color"/>
+    <attr name="bodyBk1BkBtnTxt" format="color"/>
+    <attr name="bodyBk1BkBtnTxtSecondary" format="color"/>
+    <attr name="bodyBk1BkHlt" format="color"/>
+    <attr name="bodyBk1BkHltSecondary" format="color"/>
+
+
+    <attr name="bodyBk2Bk" format="color"/>
+    <attr name="bodyBk2BkSecondary" format="color"/>
+    <attr name="bodyBk2BkText" format="color"/>
+    <attr name="bodyBk2BkTextSecondary" format="color"/>
+    <attr name="bodyBk2BkHint" format="color"/>
+    <attr name="bodyBk2BkHintSecondary" format="color"/>
+    <attr name="bodyBk2BkIcon" format="color"/>
+    <attr name="bodyBk2BkIconSecondary" format="color"/>
+    <attr name="bodyBk2BkBtn" format="color"/>
+    <attr name="bodyBk2BkBtnSecondary" format="color"/>
+    <attr name="bodyBk2BkBtnTxt" format="color"/>
+    <attr name="bodyBk2BkBtnTxtSecondary" format="color"/>
+    <attr name="bodyBk2BkHlt" format="color"/>
+    <attr name="bodyBk2BkHltSecondary" format="color"/>
+
+    <attr name="bodyBk3Bk" format="color"/>
+    <attr name="bodyBk3BkSecondary" format="color"/>
+    <attr name="bodyBk3BkText" format="color"/>
+    <attr name="bodyBk3BkTextSecondary" format="color"/>
+    <attr name="bodyBk3BkHint" format="color"/>
+    <attr name="bodyBk3BkHintSecondary" format="color"/>
+    <attr name="bodyBk3BkIcon" format="color"/>
+    <attr name="bodyBk3BkIconSecondary" format="color"/>
+    <attr name="bodyBk3BkBtn" format="color"/>
+    <attr name="bodyBk3BkBtnSecondary" format="color"/>
+    <attr name="bodyBk3BkBtnTxt" format="color"/>
+    <attr name="bodyBk3BkBtnTxtSecondary" format="color"/>
+    <attr name="bodyBk3BkHlt" format="color"/>
+    <attr name="bodyBk3BkHltSecondary" format="color"/>
+
+
+
+</resources>

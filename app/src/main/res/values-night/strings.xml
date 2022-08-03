@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="heading1">Exporting Video</string>
+    <string name="heading2">This app export high resolution video that\'s why it may take some time in video rendering, depending on
+    your video file size.\n\n\nThank you for yor patience.</string>
+    <string name="heading3">You can minimize but please don\'t close the app.</string>
+</resources>

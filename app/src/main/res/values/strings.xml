@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Video Crop</string>
+    <string name="splashHeader">Video Crop</string>
+    <string name="splashSubHeader">
+       Gateway to the world to import every direction to meet all your needs.We connect yo to
+        the world.
+    </string>
+    <string name="askMsg">To make beautiful videos VideoCrop needs access to your storage</string>
+    <string name="permissionMsg">VideoCrop needs "Storage" to read/write app configuration file and create the working directory,
+        please allow access to your device\'s \"Storage\" .\n\nTo enable \"Storage"\, click Settings and allow permission under the Permission menu.
+
+    </string>
+    <string name="permissionHeading">Do you permit VideoCrop to have your \"Storage\" ?</string>
+    <string name="email">support@gmail.com</string>
+    <string name="email2">support@gmail.com</string>
+    <string name="contact"> 0140xxxxxxxxx</string>
+    <string name="image">Image</string>
+    <string name="heading1">Exporting Video</string>
+    <string name="heading2">This app export high resolution video that\'s why it may take some time in video rendering, depending on
+    your video file size.\n\nThank you for yor patience.</string>
+    <string name="heading3">You can minimize but please don\'t close the app.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    ///ip address
+    <!--    <string name="location">http://192.168.0.107/android/</string>-->
+    <!--    <string name="ip_address">10.0.2.2</string>-->
+
+
+    <!--Titles-->
+    <!--Descriptions-->
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!--Titles-->
+    <!--Descriptions-->
+
+    <!--Titles-->
+    <!--Descriptions-->
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+</resources>

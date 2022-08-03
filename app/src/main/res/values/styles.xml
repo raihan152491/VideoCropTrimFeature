@@ -1,0 +1,238 @@
+<resources>
+
+
+
+    <style name="importerTabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+
+        <item name="fontFamily">@font/arial</item>
+
+    </style>
+    <style name="ownerTabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+
+        <item name="fontFamily">@font/arial</item>
+
+    </style>
+    <style name="bookingTabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+
+        <item name="fontFamily">@font/arial</item>
+
+    </style>
+
+    <style name="BottomNavigationView.InActive" parent="@style/TextAppearance.AppCompat.Caption">
+
+
+
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="buttonHexaCut" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+
+        <item name="cornerFamily">cut</item>
+
+        <item name="cornerSize">15dp</item>
+        <item name="borderWidth">0dp</item>
+
+
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSize">50%</item>
+
+    </style>
+    <style name="buttonSquareCut" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+
+        <item name="cornerFamily">cut</item>
+
+        <item name="cornerSize">28dp</item>
+        <item name="borderWidth">0dp</item>
+
+
+    </style>
+    <style name="bottomSheetRoundAll" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+
+        <item name="cornerFamily">rounded</item>
+
+
+
+        <item name="cornerSize">20dp</item>
+
+
+        <item name="borderWidth">0dp</item>
+
+
+    </style>
+
+    <style name="bottomSheetRound" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+
+
+        <item name="cornerSizeTopLeft">27dp</item>
+        <item name="cornerSizeTopRight">27dp</item>
+        <item name="cornerSize">0dp</item>
+
+        <item name="borderWidth">0dp</item>
+
+
+    </style>
+    <style name="Dialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/addClientDialogAnimation</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+        <item name="android:windowTranslucentStatus" >true</item>
+
+
+    </style>
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+    <style name="AlertDialogTheme2" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <style name="addClientDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+    <style name="filterDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+    <style name="SlideInSlideOut">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+    <style name="SlideDownSlideOp">
+        <item name="android:windowEnterAnimation">@anim/slide_down</item>
+        <item name="android:windowExitAnimation">@anim/slide_up</item>
+    </style>
+    <style name="navigationTheme">
+
+        <item name="colorPrimary">?attr/navBarBkHlt</item>
+        <item name="colorControlHighlight">?attr/navBarBkHlt</item>
+
+
+
+    </style>
+
+
+    <style name="DialogFullscreen" >
+
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/SlideDownSlideOp</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+
+
+
+        <item name="android:windowTranslucentStatus" >true</item>
+
+
+    </style>
+    <style name="bottomNavigationTheme">
+
+
+        <item name="colorControlHighlight">?attr/btmBarBkHlt</item>
+
+
+
+    </style>
+    <style name="FabDiamondCircle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <style name="FabDiamondCircleRight" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomRight">28dp</item>
+    </style>
+
+    <style name="FabDiamondCircleLeft" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeBottomLeft">28dp</item>
+    </style>
+
+
+
+
+    <style name="FabDiamondRect" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+    <style name="FabDiamondRectRight" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomRight">28dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="FabDiamondRectLeft" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeBottomLeft">28dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="FabDiamondHex" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="MaterialCalendarTheme_RangeFill" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="materialCalendarStyle">@style/MyMaterialCalendar</item>
+    </style>
+    <style name="MyMaterialCalendar"  parent="Widget.MaterialComponents.MaterialCalendar">
+        <item name="rangeFillColor">?attr/topBarBkHlt</item>
+    </style>
+
+    <style name="CustomToolbarTheme" parent="">
+
+        <!-- HERE ARE THE CHANGES - Change color of different texts -->
+        <item name="android:textColorPrimary">?attr/topBarBkHlt</item>
+        <item name="colorControlNormal">?attr/topBarBkHlt</item>
+    </style>
+
+</resources>
