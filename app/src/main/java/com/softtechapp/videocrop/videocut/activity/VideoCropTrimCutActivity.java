@@ -214,12 +214,20 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
         RangeSlider.OnChangeListener changeListener=new RangeSlider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0));
-                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1));
+                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0)+1);
+                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1)+1);
 
                 try {
+                    int  tst=Integer.parseInt(st);
+
+                    int  ten=Integer.parseInt(en);
+
+
                     trimStartPoint=Integer.parseInt(st);
                     trimEndPoint=Integer.parseInt(en);
+
+
+
                 }
                 catch (NumberFormatException e) {
                     Toast.makeText(activity, ""+e.toString(), Toast.LENGTH_SHORT).show();
@@ -248,10 +256,24 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(@NonNull RangeSlider slider) {
 
-                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0));
-                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1));
+                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0)+1);
+                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1)+1);
 
                 try {
+
+                    int  tst=Integer.parseInt(st);
+
+                    int  ten=Integer.parseInt(en);
+
+                    if(tst!=trimStartPoint)
+                    {
+                        binding.videoView.seekTo(tst);
+                    }
+                    if(ten!=trimStartPoint)
+                    {
+                        binding.videoView.seekTo(ten);
+                    }
+
                     trimStartPoint=Integer.parseInt(st);
                     trimEndPoint=Integer.parseInt(en);
                 }
@@ -261,7 +283,6 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                 }
 
                 trimTextUpdate();
-
 
                 seekBarLogic();
 
@@ -322,24 +343,34 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                         binding.videoView.getLayoutParams().height = MATCH_PARENT;
                     }
                 }
+
+
+
                 mHandler = new Handler();
 
                 mTicker = new Runnable() {
                     @Override
                     public void run() {
 
+                        binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
 
 
-                        if (binding.videoView.getCurrentPosition() >= trimEndPoint) {
-                            binding.videoView.pause();
+                        if (
+                                binding.videoView.getCurrentPosition() > (trimEndPoint)
+
+                        ) {
+
+
+                            Log.d(TAG, "run: true");
+
                             play.postValue(false);
-                            binding.videoView.seekTo(trimStartPoint);
-                            binding.videoSeekbar.setProgress(trimStartPoint);
-
-                        } else {
-                            binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
 
                         }
+
+                       // Log.d(TAG, "video: "+binding.videoView.getCurrentPosition()+" Progress: "+ binding.videoSeekbar.getProgress());
+
+
+
 
 
                         mHandler.postDelayed(mTicker, 0);
@@ -360,32 +391,40 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                 seekBarLogic();
 
-                binding.videoView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (aBoolean) {
-
-                            binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_pause));
-                            binding.videoView.start();
-
-                            if (mTicker != null) {
-                                mTicker.run();
-                            }
+                if (aBoolean) {
 
 
-                        } else {
-                            binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_play_arrow));
-
-                            binding.videoView.pause();
-
-                            if (mHandler != null) {
-                                mHandler.removeCallbacks(mTicker);
-                            }
+                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_pause));
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+                    binding.videoView.start();
 
 
-                        }
+
+                } else {
+                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_play_arrow));
+
+                    if (binding.videoView.getCurrentPosition() >= trimEndPoint) {
+
+
+
+                        binding.videoView.pause();
+                        binding.videoView.seekTo(trimStartPoint);
+                        binding.videoSeekbar.setProgress(trimStartPoint);
+
+
                     }
-                });
+                    else {
+                        binding.videoView.pause();
+                        binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+
+                    }
+
+                    Log.d(TAG, "video: "+binding.videoView.getCurrentPosition()+" Progress: "+ binding.videoSeekbar.getProgress());
+                    Log.d(TAG, "trimStart: "+trimStartPoint+" trimEnd: "+ trimEndPoint);
+
+
+                }
+
 
             }
         });
@@ -407,20 +446,13 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                 binding.seekBarLayout.setVisibility(View.INVISIBLE);
 
 
-                trimStartPoint = (int) (duration / 4);
+                trimStartPoint = (int) (duration / 4)+1;
                 trimEndPoint = trimStartPoint * 3;
 
 
                 binding.doubleRangeSeekbar.setValueFrom(startPoint);
                 binding.doubleRangeSeekbar.setValueTo(endPoint);
 
-
-
-//
-//                Log.d(TAG, "onChanged: "+startPoint );
-//                Log.d(TAG, "onChanged: "+endPoint );
-//                Log.d(TAG, "onChanged: "+trimStartPoint );
-//                Log.d(TAG, "onChanged: "+trimEndPoint );
 
 
 
@@ -443,7 +475,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                         uri = Uri.parse(currentVideo.getPath());
                         binding.videoView.setVideoURI(uri);
-                        binding.videoView.seekTo(5);
+                        binding.videoView.seekTo(1);
                         binding.doubleRangeSeekbar.setValues((float)trimStartPoint,(float)trimEndPoint);
 
 
@@ -451,7 +483,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                         initSuccess=true;
 
                     }
-                }, 1000);
+                }, 800);
 
 
             }
@@ -478,12 +510,12 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
     private void seekBarLogic() {
 
-        if(binding.videoSeekbar.getProgress()>=trimEndPoint)
+        if(binding.videoView.getCurrentPosition()>trimEndPoint)
         {
             binding.videoView.seekTo(trimStartPoint);
             binding.videoSeekbar.setProgress(trimStartPoint);
         }
-        if(binding.videoSeekbar.getProgress()<trimStartPoint)
+        if(binding.videoView.getCurrentPosition()<trimStartPoint)
         {
             binding.videoView.seekTo(trimStartPoint);
             binding.videoSeekbar.setProgress(trimStartPoint);

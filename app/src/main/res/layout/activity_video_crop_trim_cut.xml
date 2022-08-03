@@ -368,13 +368,13 @@
                     android:paddingEnd="25dp"
 
                     android:paddingBottom="2dp"
-                    android:text="10:20"
+                    android:stepSize="1000.0"
+                    android:text="00:00"
                     android:textAlignment="center"
-                    android:textColor="?attr/bodyBk3BkBtnTxtSecondary"
 
+                    android:textColor="?attr/bodyBk3BkBtnTxtSecondary"
                     android:textSize="16sp"
                     android:textStyle="normal"
-                    android:stepSize="1000.0"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -388,18 +388,18 @@
                     android:id="@+id/trimEndText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/arial"
-                   android:layout_alignParentEnd="true"
-                    android:gravity="end"
+                    android:layout_alignParentEnd="true"
                     android:layout_gravity="end"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-
-
                     android:background="@color/bodyBk3BkBtnSecondary"
-                    android:text="20:30"
+                    android:fontFamily="@font/arial"
+                    android:gravity="end"
+                    android:paddingStart="25dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="25dp"
+
+
+                    android:paddingBottom="2dp"
+                    android:text="00:00"
                     android:textAlignment="textEnd"
                     android:textColor="?attr/bodyBk3BkBtnTxtSecondary"
 

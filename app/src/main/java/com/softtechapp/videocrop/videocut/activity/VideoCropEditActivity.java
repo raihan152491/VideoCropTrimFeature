@@ -303,8 +303,8 @@ public class VideoCropEditActivity extends AppCompatActivity {
                         if(binding.videoView.getCurrentPosition()>=binding.videoSeekbar.getMax())
                         {
                             binding.videoView.pause();
-                            play.postValue(false);
                             binding.videoView.seekTo(0);
+                            play.postValue(false);
                             binding.videoSeekbar.setProgress(0);
 
                         }
@@ -328,29 +328,25 @@ public class VideoCropEditActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
 
-                binding.videoView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (aBoolean) {
-
-                            binding.videoView.start();
-                            binding.play.setVisibility(View.GONE);
-                            if (mTicker != null) {
-                                mTicker.run();
-                            }
-
-
-                        } else {
-                            binding.videoView.pause();
-                            binding.play.setVisibility(View.VISIBLE);
-                            if (mHandler != null) {
-                                mHandler.removeCallbacks(mTicker);
-                            }
-
-
-                        }
+                if (aBoolean) {
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+                    binding.videoView.start();
+                    binding.play.setVisibility(View.GONE);
+                    if (mTicker != null) {
+                        mTicker.run();
                     }
-                });
+
+
+                } else {
+                    binding.videoView.pause();
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+                    binding.play.setVisibility(View.VISIBLE);
+                    if (mHandler != null) {
+                        mHandler.removeCallbacks(mTicker);
+                    }
+
+
+                }
 
             }
         });
@@ -398,7 +394,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
                         });
 
                     }
-                }, 1000);
+                }, 800);
 
 
             }
