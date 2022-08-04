@@ -71,12 +71,12 @@ public class VideoCropEditActivity extends AppCompatActivity {
     Handler mHandler;
     Runnable mTicker;
     boolean goBackground = false;
-    long lastProgress = 0;
+    public static long lastProgress = 0;
     Thread thread;
     VideoModel currentVideo;
     Uri uri;
 
-    boolean initComplete=false;
+    boolean initComplete = false;
     public static int startPoint = 0;
     public static int endPoint = 5000;
 
@@ -145,12 +145,11 @@ public class VideoCropEditActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
                 Intent intent = new Intent(context, VideoCropTrimProgressActivity.class);
-                intent.putExtra("startPoint",startPoint);
-                intent.putExtra("endPoint",endPoint);
-                intent.putExtra("duration",currentVideo.getDuration());
-                intent.putExtra("path",currentVideo.getPath());
+                intent.putExtra("startPoint", startPoint);
+                intent.putExtra("endPoint", endPoint);
+                intent.putExtra("duration", currentVideo.getDuration());
+                intent.putExtra("path", currentVideo.getPath());
 
                 activity.startActivity(intent);
                 activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
@@ -234,15 +233,9 @@ public class VideoCropEditActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
 
-                binding.textDuration.post(new Runnable() {
-                    @Override
-                    public void run() {
+                binding.textDuration.setText(Help.durationCalculate(seekBar.getProgress()));
 
-                        binding.textDuration.setText(Help.durationCalculate(seekBar.getProgress()));
-
-                        binding.textDuration.setX(Help.getSeekBarThumbPosX(seekBar));
-                    }
-                });
+                binding.textDuration.setX(Help.getSeekBarThumbPosX(seekBar));
 
             }
 
@@ -257,7 +250,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
-                binding.videoView.seekTo(seekBar.getProgress());
+                binding.videoView.seekTo(seekBar.getProgress() + startPoint);
             }
         });
 
@@ -280,8 +273,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
             public void onPrepared(MediaPlayer mediaPlayer) {
 
 
-                if(mediaPlayer!=null)
-                {
+                if (mediaPlayer != null) {
                     if (mediaPlayer.getVideoWidth() > mediaPlayer.getVideoHeight()) {
                         binding.videoView.getLayoutParams().width = MATCH_PARENT;
                     }
@@ -291,7 +283,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
                     }
                 }
 
-                initComplete=true;
+                initComplete = true;
                 mHandler = new Handler();
 
                 mTicker = new Runnable() {
@@ -299,17 +291,19 @@ public class VideoCropEditActivity extends AppCompatActivity {
                     public void run() {
 
 
-
-                        if(binding.videoView.getCurrentPosition()>=binding.videoSeekbar.getMax())
-                        {
+                        if (binding.videoView.getCurrentPosition() >= binding.videoSeekbar.getMax() + startPoint) {
                             binding.videoView.pause();
-                            binding.videoView.seekTo(0);
+                            binding.videoView.seekTo(startPoint);
                             play.postValue(false);
                             binding.videoSeekbar.setProgress(0);
 
-                        }
-                        else {
-                            binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+                        } else {
+
+                            binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition() - startPoint);
+
+
+                            Log.d(TAG, "getCurrentPosition: "+binding.videoView.getCurrentPosition()+"start= "+startPoint);
+
 
                         }
 
@@ -329,7 +323,9 @@ public class VideoCropEditActivity extends AppCompatActivity {
             public void onChanged(Boolean aBoolean) {
 
                 if (aBoolean) {
-                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+
+
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition()-startPoint);
                     binding.videoView.start();
                     binding.play.setVisibility(View.GONE);
                     if (mTicker != null) {
@@ -339,7 +335,8 @@ public class VideoCropEditActivity extends AppCompatActivity {
 
                 } else {
                     binding.videoView.pause();
-                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition()-startPoint);
+
                     binding.play.setVisibility(View.VISIBLE);
                     if (mHandler != null) {
                         mHandler.removeCallbacks(mTicker);
@@ -354,8 +351,10 @@ public class VideoCropEditActivity extends AppCompatActivity {
             @Override
             public void onChanged(VideoModel videoModel) {
 
-                initComplete=false;
+                VideoCropTrimCutActivity.trimSync=false;
+                initComplete = false;
                 currentVideo = videoModel;
+
 
                 startPoint = 0;
                 endPoint = Integer.parseInt(currentVideo.getDuration());
@@ -389,7 +388,6 @@ public class VideoCropEditActivity extends AppCompatActivity {
                                 binding.play.setVisibility(View.GONE);
 
 
-
                             }
                         });
 
@@ -413,8 +411,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
                 if (model.getId() == 1) {
 
 
-                    if(initComplete)
-                    {
+                    if (initComplete) {
                         Intent intent = new Intent(context, VideoCropTrimCutActivity.class);
 
                         activity.startActivity(intent);
@@ -439,8 +436,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
         VideoCropTrimCutActivity.trim.observe((LifecycleOwner) activity, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean)
-                {
+                if (aBoolean) {
                     playTrimVideo();
                 }
             }
@@ -453,8 +449,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
     public void playTrimVideo() {
 
 
-
-        binding.videoView.stopPlayback();
+        play.postValue(true);
         long duration = endPoint - startPoint;
         long intervalInSecond = (duration / 1000) / 6;
 
@@ -471,18 +466,14 @@ public class VideoCropEditActivity extends AppCompatActivity {
                 Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage6, intervalInSecond * 6);
 
 
-
             }
         }, 500);
 
-        binding.videoSeekbar.setMax((endPoint-startPoint));
-        uri = Uri.parse(currentVideo.getPath());
-        binding.videoView.setVideoURI(uri);
-        binding.play.setVisibility(View.GONE);
-        binding.videoSeekbar.setProgress(0);
-        binding.videoView.start();
-
-
+        binding.videoSeekbar.setMax((endPoint - startPoint));
+//        uri = Uri.parse(currentVideo.getPath());
+//        binding.videoView.setVideoURI(uri);
+        binding.play.setVisibility(View.VISIBLE);
+        play.postValue(false);
 
 
 
@@ -506,10 +497,12 @@ public class VideoCropEditActivity extends AppCompatActivity {
         if (goBackground) {
 
             binding.videoView.seekTo((int) lastProgress);
-            binding.videoSeekbar.setProgress((int) lastProgress);
-            play.postValue(false);
+            binding.videoSeekbar.setProgress((int) (lastProgress - startPoint));
+
+
 
         }
+
         super.onResume();
 
     }
@@ -539,10 +532,6 @@ public class VideoCropEditActivity extends AppCompatActivity {
     public String addQuotes(String s) {
         return "\"" + s + "\"";
     }
-
-
-
-
 
 
     private static final String LOGTAG = "VideoUtils";
@@ -666,7 +655,6 @@ public class VideoCropEditActivity extends AppCompatActivity {
             muxer.release();
         }
     }
-
 
 
 }

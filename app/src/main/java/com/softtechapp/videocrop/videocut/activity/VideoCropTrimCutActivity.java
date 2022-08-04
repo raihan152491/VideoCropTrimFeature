@@ -64,6 +64,9 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
     Uri uri;
     boolean initSuccess;
     String TAG="TAG";
+
+    public static boolean trimSync=false;
+
     public static MutableLiveData<Boolean> trim = new MutableLiveData<>();
 
 
@@ -117,7 +120,9 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                 if(initSuccess)
                {
+                   trimSync=true;
                    binding.videoView.pause();
+                   VideoCropEditActivity.lastProgress=trimStartPoint;
                    VideoCropEditActivity.startPoint = trimStartPoint;
                    VideoCropEditActivity.endPoint = trimEndPoint;
 
