@@ -261,18 +261,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                 try {
 
-                    int  tst=Integer.parseInt(st);
 
-                    int  ten=Integer.parseInt(en);
-
-                    if(tst!=trimStartPoint)
-                    {
-                        binding.videoView.seekTo(tst);
-                    }
-                    if(ten!=trimStartPoint)
-                    {
-                        binding.videoView.seekTo(ten);
-                    }
 
                     trimStartPoint=Integer.parseInt(st);
                     trimEndPoint=Integer.parseInt(en);
@@ -512,8 +501,8 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
         if(binding.videoView.getCurrentPosition()>trimEndPoint)
         {
-            binding.videoView.seekTo(trimStartPoint);
-            binding.videoSeekbar.setProgress(trimStartPoint);
+            binding.videoView.seekTo(trimEndPoint);
+            binding.videoSeekbar.setProgress(trimEndPoint);
         }
         if(binding.videoView.getCurrentPosition()<trimStartPoint)
         {
