@@ -475,7 +475,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
             }
         }, 500);
 
-        binding.videoSeekbar.setMax(endPoint);
+        binding.videoSeekbar.setMax((endPoint-startPoint));
         uri = Uri.parse(currentVideo.getPath());
         binding.videoView.setVideoURI(uri);
         binding.play.setVisibility(View.GONE);

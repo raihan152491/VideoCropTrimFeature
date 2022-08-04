@@ -161,9 +161,9 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         }
 
 
-        int duration = (endMs - startMs) / 1000;
+        int duration = (endMs - startMs) ;
 
-        String[] command = new String[]{"-ss", "" + startMs / 1000, "-y", "-i", src, "-t", "" + (endMs) / 1000, "-vcodec", "mpeg4", "-b:v", "2097152", "-b:a", "48000", "-ac", "2", "-ar", "22050", dest.getAbsolutePath()};
+        String[] command = new String[]{"-ss", "" + startMs / 1000, "-y", "-i", src, "-t", "" + (duration) / 1000, "-vcodec", "mpeg4", "-b:v", "2097152", "-b:a", "48000", "-ac", "2", "-ar", "22050", dest.getAbsolutePath()};
 
         execFFMpegBinary(command);
 
