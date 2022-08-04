@@ -1,6 +1,7 @@
 package com.softtechapp.videocrop.videocut.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -88,6 +89,7 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("NewApi")
     private void checkPermission() {
 
         PackageManager pm = context.getPackageManager();
@@ -220,6 +222,10 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
             if(!binding.setting.getText().equals(""))
             {
                 showFolder.postValue(false);
+
+            }
+            else {
+                Help.comingSoonSnack(binding.getRoot(),binding.snackMsg);
             }
 
         });

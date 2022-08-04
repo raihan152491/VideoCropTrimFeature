@@ -9,6 +9,7 @@
     app:rippleColor="?attr/bodyBk1Bk"
     app:cardBackgroundColor="?attr/bodyBk1Bk"
     android:id="@+id/card"
+    app:strokeColor="#F3F3F3"
     android:focusable="true">
 
 

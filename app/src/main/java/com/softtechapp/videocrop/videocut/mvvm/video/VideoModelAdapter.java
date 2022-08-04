@@ -53,19 +53,18 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
     public Activity activity;
     Context context;
     String action;
-    List<VideoModel> list=new ArrayList<>();
+    List<VideoModel> list = new ArrayList<>();
 
 
-    public static MutableLiveData<VideoModel> clickedVideo=new MutableLiveData<>();
-    public static MutableLiveData<VideoModel> clickedVideoCopy=new MutableLiveData<>();
-
+    public static MutableLiveData<VideoModel> clickedVideo = new MutableLiveData<>();
+    public static MutableLiveData<VideoModel> clickedVideoCopy = new MutableLiveData<>();
 
 
     public VideoModelAdapter(Activity activity, Context context, String action) {
         super(itemCallback);
 
-        clickedVideo=new MutableLiveData<>();
-        clickedVideoCopy=new MutableLiveData<>();
+        clickedVideo = new MutableLiveData<>();
+        clickedVideoCopy = new MutableLiveData<>();
         this.activity = activity;
         this.context = context;
         this.action = action;
@@ -75,29 +74,25 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
 
     int row;
     int column;
-    public void setRowColumn(RecyclerView recyclerView,int row,int column,String orientation)
-    {
-        this.row=row;
-        this.column=column;
-        this.recyclerView=recyclerView;
+
+    public void setRowColumn(RecyclerView recyclerView, int row, int column, String orientation) {
+        this.row = row;
+        this.column = column;
+        this.recyclerView = recyclerView;
         GridLayoutManager gridLayoutManager;
-        if(orientation.equals("horizontal"))
-        {
-            gridLayoutManager=new GridLayoutManager(context, row, GridLayoutManager.HORIZONTAL, false);
+        if (orientation.equals("horizontal")) {
+            gridLayoutManager = new GridLayoutManager(context, row, GridLayoutManager.HORIZONTAL, false);
             gridLayoutManager.setAutoMeasureEnabled(false);
 
             recyclerView.setLayoutManager(gridLayoutManager);
 
-        }
-        else {
-            gridLayoutManager=new GridLayoutManager(context, column, GridLayoutManager.VERTICAL, false);
+        } else {
+            gridLayoutManager = new GridLayoutManager(context, column, GridLayoutManager.VERTICAL, false);
             gridLayoutManager.setAutoMeasureEnabled(false);
             recyclerView.setLayoutManager(gridLayoutManager);
 
 
         }
-
-
 
 
     }
@@ -105,9 +100,10 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
 
     private void initialize() {
         //productViewModel =new ViewModelProvider((ViewModelStoreOwner) activity).get(ProductViewModel.class);
-        list=new ArrayList<>();
+        list = new ArrayList<>();
 
     }
+
     public void filter(String searchText) {
 
 
@@ -122,7 +118,7 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
             List<VideoModel> temp = new ArrayList<>();
             for (VideoModel obj : list) {
 
-               // String orderID="#"+obj.getClientOrderId();
+                // String orderID="#"+obj.getClientOrderId();
                 if (
                         Objects.requireNonNull(String.valueOf(obj.getId())).contains(searchText)
 
@@ -166,7 +162,7 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
     @Override
     public int getItemCount() {
 
-            return super.getItemCount();
+        return super.getItemCount();
 
 
     }
@@ -177,10 +173,7 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
         MyViewTypeOne myViewTypeOne = ((MyViewTypeOne) holder);
 
 
-
-            myViewTypeOne.setData(getItem(position));
-
-
+        myViewTypeOne.setData(getItem(position));
 
 
 
@@ -189,14 +182,17 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
 
 
     public void setList(List<VideoModel> setList) {
-        list =new ArrayList<>(setList) ;
+        list = new ArrayList<>(setList);
         submitList(setList);
 
 
     }
 
+    RecycleVideoCropVideoModelBinding previousBinding;
+    int selectedIndex = -1;
 
-    public  class MyViewTypeOne extends RecyclerView.ViewHolder {
+
+    public class MyViewTypeOne extends RecyclerView.ViewHolder {
 
         RecycleVideoCropVideoModelBinding binding;
 
@@ -206,35 +202,51 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
             this.binding = itemView;
 
 
-
         }
 
 
         public void setData(VideoModel model) {
 
 
-
-
-
-            if (binding != null ) {
+            if (binding != null) {
 
                 Glide.with(binding.getRoot()).load(
                         new File(model.getPath())
                 ).placeholder(R.drawable.logo).error(R.drawable.logo).into(binding.thumbNail);
 
 
-
                 try {
-                    binding.duration.setText(Help.durationCalculate( Integer.parseInt(model.getDuration())));
+                    binding.duration.setText(Help.durationCalculate(Integer.parseInt(model.getDuration())));
 
                 }
                 catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
 
+
+                float density = activity.getResources().getDisplayMetrics().density;
+                if (selectedIndex == getAdapterPosition()) {
+                    binding.card.setStrokeWidth((int) (4 * density));
+                } else {
+                    binding.card.setStrokeWidth((int) (0 * density));
+                }
+
                 binding.card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+
+                        if (selectedIndex == -1) {
+                            selectedIndex = getAdapterPosition();
+                            previousBinding = binding;
+                        } else {
+                            previousBinding.card.setStrokeWidth(0);
+                            notifyItemChanged(selectedIndex);
+                            selectedIndex = getAdapterPosition();
+                        }
+                        binding.card.setStrokeWidth((int) (4 * density));
+
+
 
                         clickedVideo.postValue(model);
                         clickedVideoCopy.postValue(model);
@@ -251,13 +263,7 @@ public class VideoModelAdapter extends ListAdapter<VideoModel, RecyclerView.View
         }
 
 
-
-
     }
-
-
-
-
 
 
 }
