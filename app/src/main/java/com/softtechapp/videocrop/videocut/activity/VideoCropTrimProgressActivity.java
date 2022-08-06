@@ -8,6 +8,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -129,7 +131,7 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
             }
         });
     }
-
+    File dest;
 
     private void trimVideo(int startMs, int endMs, String src, String fileName) {
         File folder;
@@ -153,7 +155,8 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
 
         String fileExt = ".mp4";
 
-        File dest = new File(folder, fileName + fileExt);
+
+        dest = new File(folder, fileName + fileExt);
         int fileNo = 0;
         while (dest.exists()) {
             fileNo++;
@@ -166,6 +169,7 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         String[] command = new String[]{"-ss", "" + startMs / 1000, "-y", "-i", src, "-t", "" + (duration) / 1000, "-vcodec", "mpeg4", "-b:v", "2097152", "-b:a", "48000", "-ac", "2", "-ar", "22050", dest.getAbsolutePath()};
 
         execFFMpegBinary(command);
+
 
     }
 
@@ -210,7 +214,7 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
 
                 }
 
-                mHandler.postDelayed(mTicker, (long) (((endPoint - startPoint) * 1.1) / 100));
+                mHandler.postDelayed(mTicker, (long) (((endPoint - startPoint)) / 100));
 
             }
         };
@@ -263,6 +267,21 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         binding.circleProgressBar.setProgress(100);
         binding.msg.setText("Done");
         Toast.makeText(context, "Trimmed Successfully", Toast.LENGTH_SHORT).show();
+        binding.btnCancelText.setText("Done Exporting");
+
+
+        MediaScannerConnection.scanFile(context,
+                new String[] { dest.getAbsolutePath().toString() },
+                new String[]{"video/mp4"},
+                new MediaScannerConnection.OnScanCompletedListener() {
+
+                    public void onScanCompleted(String path, Uri uri) {
+
+                        Log.d("TAG", "onScanCompleted: ");
+                    }
+                });
+        Log.d("TAG", "trimSuccess: ");
+
     }
 
 

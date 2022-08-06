@@ -3,6 +3,8 @@ package com.softtechapp.videocrop.util;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -82,6 +84,21 @@ public class Help extends AppCompatActivity {
         this.context = context;
 
 
+    }
+
+
+    public static void saveVideoToGallery(Activity activity, File videoFile) {
+        ContentValues values = new ContentValues();
+        values.put("title", videoFile.getName());
+        values.put("description", "video");
+        values.put("_data", videoFile.getPath());
+        values.put("mime_type", "video/mp4");
+        values.put("datetaken", System.currentTimeMillis());
+        values.put("bucket_id", videoFile.getPath().toLowerCase(Locale.US).hashCode());
+        values.put("bucket_display_name", videoFile.getName().toLowerCase(Locale.US));
+        values.put("_data", videoFile.getPath());
+        ContentResolver cr = activity.getContentResolver();
+        cr.insert(android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values);
     }
 
     public static void setVideoThumbnailFromPathGlide(Context context,String path, ImageView imageView,long intervalInSecond){
