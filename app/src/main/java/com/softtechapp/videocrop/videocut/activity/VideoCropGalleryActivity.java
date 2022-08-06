@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.View;
@@ -218,6 +220,23 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     private void clickHandle() {
 
 
+
+        binding.btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(Help.checkCameraPermission(activity,context))
+                {
+
+                    Intent intent = new Intent(context, CameraActivity.class);
+
+                    activity.startActivity(intent);
+                    activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
+
+                }
+
+            }
+        });
         binding.setting.setOnClickListener(v -> {
 
             if(!binding.setting.getText().equals(""))
@@ -331,10 +350,12 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-
+        binding.videoRecycleView.smoothScrollToPosition(0);
         Help.showBottomDialog(activity,context);
 
         activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
+
+
 
 
     }

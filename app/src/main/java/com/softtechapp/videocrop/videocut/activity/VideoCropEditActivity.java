@@ -461,7 +461,8 @@ public class VideoCropEditActivity extends AppCompatActivity {
 //        uri = Uri.parse(currentVideo.getPath());
 //        binding.videoView.setVideoURI(uri);
         binding.play.setVisibility(View.VISIBLE);
-        play.postValue(false);
+        binding.videoView.seekTo(endPoint - startPoint);
+        play.postValue(true);
 
 
 

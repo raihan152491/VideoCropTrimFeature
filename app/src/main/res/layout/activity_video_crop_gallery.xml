@@ -129,4 +129,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnCamera"
+        android:visibility="visible"
+        android:layout_margin="20dp"
+        android:layout_width="0dp"
+
+        android:elevation="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bodyBk1BkBtn"
+
+        android:fontFamily="@font/arial"
+        android:src="@drawable/a_camera"
+        android:textAllCaps="false"
+        android:textColor="@color/bodyBk1BkBtnTxt"
+
+
+        app:icon="@drawable/a_camera"
+        app:iconTint="@color/bodyBk1BkBtnTxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/FabDiamondRect"
+        app:tint="@color/bodyBk1BkBtn" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaMetadataRetriever;
+import android.media.MediaScannerConnection;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -598,6 +599,21 @@ public class Help extends AppCompatActivity {
         return result;
     }
 
+    public static void  scanMediaAfterSave(Context context, File dest,String memeType){
+
+
+
+        MediaScannerConnection.scanFile(context,
+                new String[] { dest.getAbsolutePath().toString() },
+                new String[]{memeType},
+                new MediaScannerConnection.OnScanCompletedListener() {
+
+                    public void onScanCompleted(String path, Uri uri) {
+
+
+                    }
+                });
+    }
 
     public static void AppExit(Activity activity) {
         activity.finish();
@@ -625,6 +641,52 @@ public class Help extends AppCompatActivity {
 
 
                 }).show();
+    }
+
+    public static boolean checkCameraPermission(Activity activity,Context context) {
+
+        final boolean[] result = {false};
+
+        Dexter.withContext(context)
+                .withPermissions(
+
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO
+
+
+                ).withListener(new MultiplePermissionsListener(
+
+
+                ) {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if(report.areAllPermissionsGranted())
+                        {
+                            result[0]=true;
+                        }else {
+                            result[0]=false;
+
+                            Intent getPermission = new Intent();
+                            getPermission.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+
+                            Uri uri=Uri.fromParts("package",activity.getPackageName(),"");
+                            getPermission.setData(uri);
+                            activity.startActivity(getPermission);
+                            activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
+
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+                        permissionToken.continuePermissionRequest();
+
+                    }
+                }).check();
+
+
+        return result[0];
+
     }
 
     public boolean isConnected() {

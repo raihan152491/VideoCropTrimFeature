@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".videocut.activity.CameraActivity">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/filterRecycleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/filterRecycleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filterRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+
+        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+
+    <LinearLayout
+        android:elevation="16dp"
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:id="@+id/btnRotate"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:drawableStart="@drawable/a_cameraswitch"
+
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center"
+                android:src="@drawable/a_cameraswitch"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="?attr/topBarBkBtnTxt"
+
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableTint="?attr/topBarBkBtnTxt"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:tint="?attr/topBarBkBtnTxt"
+
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnCapture"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+
+
+
+
+
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center"
+
+                android:text=""
+                app:cardCornerRadius="100dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="@color/white"
+                app:strokeWidth="5dp"
+
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/captureText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        android:text="Capture"
+                        />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/btnFilter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:drawableStart="@drawable/a_filter"
+
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center"
+                android:src="@drawable/a_filter"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="?attr/topBarBkBtnTxt"
+
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableTint="?attr/topBarBkBtnTxt"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:tint="?attr/topBarBkBtnTxt"
+
+                />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/enableVideo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="8dp"
+            android:background="@color/transparent"
+            android:clickable="true"
+            android:drawableStart="@drawable/a_video_record"
+
+            android:layout_gravity="center"
+            android:elevation="4dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:src="@drawable/a_video_record"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="?attr/topBarBkBtnTxt"
+
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableTint="?attr/topBarBkBtnTxt"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            app:layout_constraintStart_toStartOf="parent"
+
+
+            app:tint="?attr/topBarBkBtnTxt"
+
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
