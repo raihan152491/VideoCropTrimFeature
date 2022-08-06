@@ -33,6 +33,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.MutableLiveData;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.VideoBitmapDecoder;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textview.MaterialTextView;
@@ -80,6 +84,17 @@ public class Help extends AppCompatActivity {
 
     }
 
+    public static void setVideoThumbnailFromPathGlide(Context context,String path, ImageView imageView,long intervalInSecond){
+
+
+
+
+        RequestOptions options = new RequestOptions().frame((intervalInSecond*1000));
+        Glide.with(context).asBitmap()
+                .load(path)
+                .apply(options)
+                .into(imageView);
+    }
     public static  void setVideoThumbnailFormPath(String path, ImageView imageView,long intervalInSecond) {
 
         try {

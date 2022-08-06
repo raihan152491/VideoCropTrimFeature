@@ -76,8 +76,8 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
         binding = ActivityVideoCropTrimCutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        activity = this;
-        context = this;
+        activity = VideoCropTrimCutActivity.this;
+        context = VideoCropTrimCutActivity.this;
         //Status bar colour and fullscreen and input auto hidden
 
 
@@ -437,7 +437,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                 binding.videoSeekbar.setMax(endPoint);
 
 
-                binding.seekBarLayout.setVisibility(View.INVISIBLE);
+
 
 
                 trimStartPoint = (int) (duration / 4)+1;
@@ -449,35 +449,25 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
 
 
+                long intervalInSecond = (duration ) / 6;
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage2, intervalInSecond*2);
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage3, intervalInSecond*3);
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage4, intervalInSecond*4);
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage5, intervalInSecond*5);
+                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage6, intervalInSecond*6);
 
-
-                        long intervalInSecond = (duration / 1000) / 6;
-
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage2, intervalInSecond * 2);
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage3, intervalInSecond * 3);
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage4, intervalInSecond * 4);
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage5, intervalInSecond * 5);
-                        Help.setVideoThumbnailFormPath(currentVideo.getPath(), binding.thumbImage6, intervalInSecond * 6);
+                initSuccess=true;
 
 
-                        binding.seekBarLayout.setVisibility(View.VISIBLE);
-
-                        uri = Uri.parse(currentVideo.getPath());
-                        binding.videoView.setVideoURI(uri);
-                        binding.videoView.seekTo(1);
-                        binding.doubleRangeSeekbar.setValues((float)trimStartPoint,(float)trimEndPoint);
+                uri = Uri.parse(currentVideo.getPath());
+                binding.videoView.setVideoURI(uri);
+                binding.videoView.seekTo(1);
+                binding.doubleRangeSeekbar.setValues((float)trimStartPoint,(float)trimEndPoint);
 
 
 
-                        initSuccess=true;
-
-                    }
-                }, 800);
 
 
             }
