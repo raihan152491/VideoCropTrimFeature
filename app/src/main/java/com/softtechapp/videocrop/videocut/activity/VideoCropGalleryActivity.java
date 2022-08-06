@@ -287,7 +287,16 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        if(selectedFolder!=null && selectedFolder.getValue()!=null)
+        {
+            selectedFolder.postValue(selectedFolder.getValue());
+        }
+
+    }
 
     @Override
     protected void onRestart() {
