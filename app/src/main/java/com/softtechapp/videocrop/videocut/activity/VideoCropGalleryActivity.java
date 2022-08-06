@@ -167,6 +167,7 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
 
 
 
+    VideoFolderModel currentVideoFolder;
 
     private void observer() {
 
@@ -175,11 +176,11 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
             @Override
             public void onChanged(VideoFolderModel videoFolderModel) {
 
+                currentVideoFolder=videoFolderModel;
+                galleryFolderName.postValue("  "+currentVideoFolder.getFolderName()+"  ");
 
-                galleryFolderName.postValue("  "+videoFolderModel.getFolderName()+"  ");
 
-
-                videoModelAdapter.setList(Help.fetchAllVideosByFolderName(videoFolderModel.getId(),context));
+                videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(),context));
 
 
                 showFolder.postValue(false);
@@ -291,9 +292,12 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if(selectedFolder!=null && selectedFolder.getValue()!=null)
+        if(currentVideoFolder!=null)
         {
-            selectedFolder.postValue(selectedFolder.getValue());
+
+            galleryFolderName.postValue("  "+currentVideoFolder.getFolderName()+"  ");
+
+            videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(),context));
         }
 
     }

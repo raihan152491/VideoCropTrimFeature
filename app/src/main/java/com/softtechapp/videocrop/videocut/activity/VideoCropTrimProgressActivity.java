@@ -114,20 +114,32 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         binding.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Snackbar.make(binding.getRoot(), "Dou you really want to cancel ?", Snackbar.LENGTH_LONG)
-                                .setAnchorView(binding.btnCancel)
-                                .setAction("Yes", vSnack -> {
-                                    mHandler.removeCallbacks(mTicker);
-                                    binding.circleProgressBar.setProgress(0);
-                                    FFmpeg.cancel(executionId);
-                                    binding.msg.setText("Canceled");
+              if(binding.msg.getText().equals(trimmingMsg))
+              {
+                  new Handler(Looper.getMainLooper()).post(new Runnable() {
+                      @Override
+                      public void run() {
+                          Snackbar.make(binding.getRoot(), "Dou you really want to cancel ?", Snackbar.LENGTH_LONG)
+                                  .setAnchorView(binding.btnCancel)
+                                  .setAction("Yes", vSnack -> {
+                                      mHandler.removeCallbacks(mTicker);
+                                      binding.circleProgressBar.setProgress(0);
+                                      FFmpeg.cancel(executionId);
+                                      binding.msg.setText("Canceled");
 
-                                }).show();
-                    }
-                });
+                                  }).show();
+                      }
+                  });
+              }
+              else if(binding.msg.getText().equals("Done")){
+
+                  Intent intent = new Intent(context, VideoCropGalleryActivity.class);
+
+                  activity.startActivity(intent);
+                  activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
+              }else {
+                  VideoCropTrimProgressActivity.super.onBackPressed();
+              }
             }
         });
     }
