@@ -63,9 +63,9 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
     int trimEndPoint = 100;
     Uri uri;
     boolean initSuccess;
-    String TAG="TAG";
+    String TAG = "TAG";
 
-    public static boolean trimSync=false;
+    public static boolean trimSync = false;
 
     public static MutableLiveData<Boolean> trim = new MutableLiveData<>();
 
@@ -101,7 +101,6 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
         play = new MutableLiveData<>(false);
 
-
         clickHandle();
 
         observer();
@@ -118,17 +117,16 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if(initSuccess)
-               {
-                   trimSync=true;
-                   binding.videoView.pause();
-                   VideoCropEditActivity.lastProgress=trimStartPoint;
-                   VideoCropEditActivity.startPoint = trimStartPoint;
-                   VideoCropEditActivity.endPoint = trimEndPoint;
+                if (initSuccess) {
+                    trimSync = true;
+                    binding.videoView.pause();
+                    VideoCropEditActivity.lastProgress = trimStartPoint;
+                    VideoCropEditActivity.startPoint = trimStartPoint;
+                    VideoCropEditActivity.endPoint = trimEndPoint;
 
-                   trim.postValue(true);
-                   backHandle();
-               }
+                    trim.postValue(true);
+                    backHandle();
+                }
 
 
             }
@@ -216,26 +214,25 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
     private void observer() {
 
 
-        RangeSlider.OnChangeListener changeListener=new RangeSlider.OnChangeListener() {
+        RangeSlider.OnChangeListener changeListener = new RangeSlider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0)+1);
-                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1)+1);
+                String st = String.format(Locale.getDefault(), "%.0f", slider.getValues().get(0) + 1);
+                String en = String.format(Locale.getDefault(), "%.0f", slider.getValues().get(1) + 1);
 
                 try {
-                    int  tst=Integer.parseInt(st);
+                    int tst = Integer.parseInt(st);
 
-                    int  ten=Integer.parseInt(en);
+                    int ten = Integer.parseInt(en);
 
 
-                    trimStartPoint=Integer.parseInt(st);
-                    trimEndPoint=Integer.parseInt(en);
-
+                    trimStartPoint = Integer.parseInt(st);
+                    trimEndPoint = Integer.parseInt(en);
 
 
                 }
                 catch (NumberFormatException e) {
-                    Toast.makeText(activity, ""+e.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "" + e.toString(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -247,7 +244,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
         binding.doubleRangeSeekbar.addOnChangeListener(changeListener);
 
 
-        RangeSlider.OnSliderTouchListener touchListener =new RangeSlider.OnSliderTouchListener() {
+        RangeSlider.OnSliderTouchListener touchListener = new RangeSlider.OnSliderTouchListener() {
             @Override
             public void onStartTrackingTouch(@NonNull RangeSlider slider) {
 //                Toast.makeText(activity, ""+ Arrays.toString(slider.getValues().toArray()), Toast.LENGTH_SHORT).show();
@@ -261,18 +258,17 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(@NonNull RangeSlider slider) {
 
-                String st=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(0)+1);
-                String en=String.format(Locale.getDefault(),"%.0f", slider.getValues().get(1)+1);
+                String st = String.format(Locale.getDefault(), "%.0f", slider.getValues().get(0) + 1);
+                String en = String.format(Locale.getDefault(), "%.0f", slider.getValues().get(1) + 1);
 
                 try {
 
 
-
-                    trimStartPoint=Integer.parseInt(st);
-                    trimEndPoint=Integer.parseInt(en);
+                    trimStartPoint = Integer.parseInt(st);
+                    trimEndPoint = Integer.parseInt(en);
                 }
                 catch (NumberFormatException e) {
-                    Toast.makeText(activity, ""+e.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "" + e.toString(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -327,8 +323,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
             public void onPrepared(MediaPlayer mediaPlayer) {
 
                 seekBarLogic();
-                if(mediaPlayer!=null)
-                {
+                if (mediaPlayer != null) {
                     if (mediaPlayer.getVideoWidth() > mediaPlayer.getVideoHeight()) {
                         binding.videoView.getLayoutParams().width = MATCH_PARENT;
                     }
@@ -337,7 +332,6 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                         binding.videoView.getLayoutParams().height = MATCH_PARENT;
                     }
                 }
-
 
 
                 mHandler = new Handler();
@@ -361,10 +355,7 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                         }
 
-                       // Log.d(TAG, "video: "+binding.videoView.getCurrentPosition()+" Progress: "+ binding.videoSeekbar.getProgress());
-
-
-
+                        // Log.d(TAG, "video: "+binding.videoView.getCurrentPosition()+" Progress: "+ binding.videoSeekbar.getProgress());
 
 
                         mHandler.postDelayed(mTicker, 0);
@@ -382,23 +373,20 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
             public void onChanged(Boolean aBoolean) {
 
 
-
                 seekBarLogic();
 
                 if (aBoolean) {
 
 
-                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_pause));
+                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.a_pause));
                     binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
                     binding.videoView.start();
 
 
-
                 } else {
-                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.a_play_arrow));
+                    binding.btnPlay.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.a_play_arrow));
 
                     if (binding.videoView.getCurrentPosition() >= trimEndPoint) {
-
 
 
                         binding.videoView.pause();
@@ -406,15 +394,14 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                         binding.videoSeekbar.setProgress(trimStartPoint);
 
 
-                    }
-                    else {
+                    } else {
                         binding.videoView.pause();
                         binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition());
 
                     }
 
-                    Log.d(TAG, "video: "+binding.videoView.getCurrentPosition()+" Progress: "+ binding.videoSeekbar.getProgress());
-                    Log.d(TAG, "trimStart: "+trimStartPoint+" trimEnd: "+ trimEndPoint);
+                    Log.d(TAG, "video: " + binding.videoView.getCurrentPosition() + " Progress: " + binding.videoSeekbar.getProgress());
+                    Log.d(TAG, "trimStart: " + trimStartPoint + " trimEnd: " + trimEndPoint);
 
 
                 }
@@ -430,17 +417,14 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
                 startPoint = 0;
                 endPoint = Integer.parseInt(currentVideo.getDuration());
-                trimStartPoint=startPoint;
-                trimEndPoint=endPoint;
+                trimStartPoint = startPoint;
+                trimEndPoint = endPoint;
                 int duration = endPoint - startPoint;
 
                 binding.videoSeekbar.setMax(endPoint);
 
 
-
-
-
-                trimStartPoint = (int) (duration / 4)+1;
+                trimStartPoint = (int) (duration / 4) + 1;
                 trimEndPoint = trimStartPoint * 3;
 
 
@@ -448,26 +432,22 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
                 binding.doubleRangeSeekbar.setValueTo(endPoint);
 
 
+                long intervalInSecond = (duration) / 6;
 
-                long intervalInSecond = (duration ) / 6;
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage2, intervalInSecond * 2);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage3, intervalInSecond * 3);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage4, intervalInSecond * 4);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage5, intervalInSecond * 5);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage6, intervalInSecond * 6);
 
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage2, intervalInSecond*2);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage3, intervalInSecond*3);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage4, intervalInSecond*4);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage5, intervalInSecond*5);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage6, intervalInSecond*6);
-
-                initSuccess=true;
+                initSuccess = true;
 
 
                 uri = Uri.parse(currentVideo.getPath());
                 binding.videoView.setVideoURI(uri);
                 binding.videoView.seekTo(1);
-                binding.doubleRangeSeekbar.setValues((float)trimStartPoint,(float)trimEndPoint);
-
-
-
+                binding.doubleRangeSeekbar.setValues((float) trimStartPoint, (float) trimEndPoint);
 
 
             }
@@ -494,13 +474,11 @@ public class VideoCropTrimCutActivity extends AppCompatActivity {
 
     private void seekBarLogic() {
 
-        if(binding.videoView.getCurrentPosition()>trimEndPoint)
-        {
+        if (binding.videoView.getCurrentPosition() > trimEndPoint) {
             binding.videoView.seekTo(trimEndPoint);
             binding.videoSeekbar.setProgress(trimEndPoint);
         }
-        if(binding.videoView.getCurrentPosition()<trimStartPoint)
-        {
+        if (binding.videoView.getCurrentPosition() < trimStartPoint) {
             binding.videoView.seekTo(trimStartPoint);
             binding.videoSeekbar.setProgress(trimStartPoint);
         }

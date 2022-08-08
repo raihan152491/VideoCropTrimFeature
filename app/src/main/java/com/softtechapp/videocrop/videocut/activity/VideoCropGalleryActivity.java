@@ -49,15 +49,15 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     Context context;
     Animation topAnim, bottomAnim, leftAnim, rightAnim;
     Pair[] pairs = new Pair[1];
-    boolean goBakGround=false;
+    boolean goBakGround = false;
 
-    public static MutableLiveData<VideoFolderModel> selectedFolder=new MutableLiveData<>();
+    public static MutableLiveData<VideoFolderModel> selectedFolder = new MutableLiveData<>();
 
     MutableLiveData<String> galleryFolderName;
-    List<VideoFolderModel> videoFolderModels=new ArrayList<>();
+    List<VideoFolderModel> videoFolderModels = new ArrayList<>();
     VideoModelAdapter videoModelAdapter;
     VideoFolderModelAdapter videoFolderModelAdapter;
-    MutableLiveData<Boolean> showFolder=new MutableLiveData<>();
+    MutableLiveData<Boolean> showFolder = new MutableLiveData<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +76,6 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         new WindowInsetsControllerCompat(getWindow(),
                 getWindow().getDecorView()).setAppearanceLightStatusBars(false);
 
-
-        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-        leftAnim = AnimationUtils.loadAnimation(this, R.anim.left_animation);
-        rightAnim = AnimationUtils.loadAnimation(this, R.anim.right_animation);
 
         galleryFolderName = new MutableLiveData<>("  All Video  ");
 
@@ -104,44 +100,39 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         if (false) {
 
 
-            if (!Environment.isExternalStorageManager())  {
+            if (!Environment.isExternalStorageManager()) {
 
 
-                Help.checkAppPermission(activity,context).observe((LifecycleOwner) activity, aBoolean -> {
+                Help.checkAppPermission(activity, context).observe((LifecycleOwner) activity, aBoolean -> {
 
-                    if(aBoolean)
-                    {
+                    if (aBoolean) {
                         initialize();
-                    }else {
+                    } else {
                         checkPermission();
                     }
 
                 });
-            }
-            else {
-                if(!goBakGround){
+            } else {
+                if (!goBakGround) {
                     initialize();
                 }
 
             }
-        }
-        else {
-            if ((readPermission != PackageManager.PERMISSION_GRANTED) && writePermission != PackageManager.PERMISSION_GRANTED ) {
+        } else {
+            if ((readPermission != PackageManager.PERMISSION_GRANTED) && writePermission != PackageManager.PERMISSION_GRANTED) {
 
 
-                Help.checkAppPermission(activity,context).observe((LifecycleOwner) activity, aBoolean -> {
+                Help.checkAppPermission(activity, context).observe((LifecycleOwner) activity, aBoolean -> {
 
-                    if(aBoolean)
-                    {
+                    if (aBoolean) {
                         initialize();
-                    }else {
+                    } else {
                         checkPermission();
                     }
 
                 });
-            }
-            else {
-                if(!goBakGround){
+            } else {
+                if (!goBakGround) {
                     initialize();
                 }
 
@@ -154,10 +145,10 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     private void initialize() {
 
 
-        selectedFolder.postValue(new VideoFolderModel("all","All Videos",new ArrayList<>()));
+        selectedFolder.postValue(new VideoFolderModel("all", "All Videos", new ArrayList<>()));
 
 
-        goBakGround=true;
+        goBakGround = true;
 
         observer();
         folderRecycleView();
@@ -166,7 +157,6 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         clickHandle();
 
     }
-
 
 
     VideoFolderModel currentVideoFolder;
@@ -178,11 +168,11 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
             @Override
             public void onChanged(VideoFolderModel videoFolderModel) {
 
-                currentVideoFolder=videoFolderModel;
-                galleryFolderName.postValue("  "+currentVideoFolder.getFolderName()+"  ");
+                currentVideoFolder = videoFolderModel;
+                galleryFolderName.postValue("  " + currentVideoFolder.getFolderName() + "  ");
 
 
-                videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(),context));
+                videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(), context));
 
 
                 showFolder.postValue(false);
@@ -196,8 +186,7 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
             binding.galleryFolderName.setText(folderName);
         });
         showFolder.observe((LifecycleOwner) activity, aBoolean -> {
-            if(aBoolean)
-            {
+            if (aBoolean) {
                 binding.folderRecycleView.setVisibility(View.VISIBLE);
                 //binding.videoRecycleView.setVisibility(View.GONE);
                 binding.setting.setText("Cancel");
@@ -205,7 +194,7 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
                 binding.galleryFolderName.setCompoundDrawablesWithIntrinsicBounds(R.drawable.a_up_arrow, 0, R.drawable.a_up_arrow, 0);
                 bottomAnim = AnimationUtils.loadAnimation(context, R.anim.folder_slide_down);
                 binding.folderRecycleView.setAnimation(bottomAnim);
-            }else {
+            } else {
                 binding.folderRecycleView.setVisibility(View.GONE);
                 binding.setting.setText("");
                 binding.setting.setCompoundDrawablesWithIntrinsicBounds(R.drawable.a_setting, 0, 0, 0);
@@ -220,13 +209,11 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     private void clickHandle() {
 
 
-
         binding.btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(Help.checkCameraPermission(activity,context))
-                {
+                if (Help.checkCameraPermission(activity, context)) {
 
                     Intent intent = new Intent(context, CameraActivity.class);
 
@@ -239,39 +226,34 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         });
         binding.setting.setOnClickListener(v -> {
 
-            if(!binding.setting.getText().equals(""))
-            {
+            if (!binding.setting.getText().equals("")) {
                 showFolder.postValue(false);
 
-            }
-            else {
-                Help.comingSoonSnack(binding.getRoot(),binding.snackMsg);
+            } else {
+                Help.comingSoonSnack(binding.getRoot(), binding.snackMsg);
             }
 
         });
         binding.cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Help.comingSoonSnack(binding.getRoot(),binding.snackMsg);
+                Help.comingSoonSnack(binding.getRoot(), binding.snackMsg);
             }
         });
 
         binding.galleryFolderName.setOnClickListener(v -> {
 
-            Boolean val=showFolder.getValue();
-            if(val!=null)
-            {
+            Boolean val = showFolder.getValue();
+            if (val != null) {
                 showFolder.postValue(!showFolder.getValue());
 
-            }else {
+            } else {
                 showFolder.postValue(true);
             }
 
         });
 
     }
-
-
 
 
     private void galleryRecycleView() {
@@ -286,9 +268,10 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recyclerView.setAdapter(videoModelAdapter);
 
-        videoModelAdapter.setList(Help.fetchAllVideosByFolderName("all",context));
+        videoModelAdapter.setList(Help.fetchAllVideosByFolderName("all", context));
 
     }
+
     private void folderRecycleView() {
 
         RecyclerView recyclerView = binding.folderRecycleView;
@@ -311,12 +294,11 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if(currentVideoFolder!=null)
-        {
+        if (currentVideoFolder != null) {
 
-            galleryFolderName.postValue("  "+currentVideoFolder.getFolderName()+"  ");
+            galleryFolderName.postValue("  " + currentVideoFolder.getFolderName() + "  ");
 
-            videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(),context));
+            videoModelAdapter.setList(Help.fetchAllVideosByFolderName(currentVideoFolder.getId(), context));
         }
 
     }
@@ -326,18 +308,13 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
         super.onRestart();
 
 
-
-        if(Help.permissionMsgDialog!=null)
-        {
-            if(Help.permissionMsgDialog.isShowing())
-            {
+        if (Help.permissionMsgDialog != null) {
+            if (Help.permissionMsgDialog.isShowing()) {
                 Help.permissionMsgDialog.dismiss();
             }
         }
-        if(Help.checkAppPermissionDialog!=null)
-        {
-            if(Help.checkAppPermissionDialog.isShowing())
-            {
+        if (Help.checkAppPermissionDialog != null) {
+            if (Help.checkAppPermissionDialog.isShowing()) {
                 Help.checkAppPermissionDialog.dismiss();
             }
 
@@ -351,11 +328,9 @@ public class VideoCropGalleryActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         binding.videoRecycleView.smoothScrollToPosition(0);
-        Help.showBottomDialog(activity,context);
+        Help.showBottomDialog(activity, context);
 
         activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
-
-
 
 
     }

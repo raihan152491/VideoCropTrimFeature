@@ -50,7 +50,6 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
     Activity activity;
     Context context;
 
-    Pair[] pairs = new Pair[1];
 
     CircleProgressBar circleProgressBar;
     int duration;
@@ -91,19 +90,17 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
 
 
             initialize();
-        } else {
-
         }
 
 
     }
 
-    String trimmingMsg="Trimming";
+    String trimmingMsg = "Trimming";
 
 
     private void initialize() {
 
-        String fileName = "VideCrop_"+ Help.getDateToStringDate("dd_MMM_YYYY_hh_mm_ss");
+        String fileName = "VideCrop_" + Help.getDateToStringDate("dd_MMM_YYYY_hh_mm_ss");
         trimVideo(startPoint, endPoint, path, fileName);
         clickHandel();
     }
@@ -114,35 +111,34 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         binding.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              if(binding.msg.getText().equals(trimmingMsg))
-              {
-                  new Handler(Looper.getMainLooper()).post(new Runnable() {
-                      @Override
-                      public void run() {
-                          Snackbar.make(binding.getRoot(), "Dou you really want to cancel ?", Snackbar.LENGTH_LONG)
-                                  .setAnchorView(binding.btnCancel)
-                                  .setAction("Yes", vSnack -> {
-                                      mHandler.removeCallbacks(mTicker);
-                                      binding.circleProgressBar.setProgress(0);
-                                      FFmpeg.cancel(executionId);
-                                      binding.msg.setText("Canceled");
+                if (binding.msg.getText().equals(trimmingMsg)) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Snackbar.make(binding.getRoot(), "Dou you really want to cancel ?", Snackbar.LENGTH_LONG)
+                                    .setAnchorView(binding.btnCancel)
+                                    .setAction("Yes", vSnack -> {
+                                        mHandler.removeCallbacks(mTicker);
+                                        binding.circleProgressBar.setProgress(0);
+                                        FFmpeg.cancel(executionId);
+                                        binding.msg.setText("Canceled");
 
-                                  }).show();
-                      }
-                  });
-              }
-              else if(binding.msg.getText().equals("Done")){
+                                    }).show();
+                        }
+                    });
+                } else if (binding.msg.getText().equals("Done")) {
 
-                  Intent intent = new Intent(context, VideoCropGalleryActivity.class);
+                    Intent intent = new Intent(context, VideoCropGalleryActivity.class);
 
-                  activity.startActivity(intent);
-                  activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
-              }else {
-                  VideoCropTrimProgressActivity.super.onBackPressed();
-              }
+                    activity.startActivity(intent);
+                    activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
+                } else {
+                    VideoCropTrimProgressActivity.super.onBackPressed();
+                }
             }
         });
     }
+
     File dest;
 
     private void trimVideo(int startMs, int endMs, String src, String fileName) {
@@ -176,7 +172,7 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
         }
 
 
-        int duration = (endMs - startMs) ;
+        int duration = (endMs - startMs);
 
         String[] command = new String[]{"-ss", "" + startMs / 1000, "-y", "-i", src, "-t", "" + (duration) / 1000, "-vcodec", "mpeg4", "-b:v", "2097152", "-b:a", "48000", "-ac", "2", "-ar", "22050", dest.getAbsolutePath()};
 
@@ -283,16 +279,16 @@ public class VideoCropTrimProgressActivity extends AppCompatActivity {
 
 
         MediaScannerConnection.scanFile(context,
-                new String[] { dest.getAbsolutePath().toString() },
+                new String[]{dest.getAbsolutePath().toString()},
                 new String[]{"video/mp4"},
                 new MediaScannerConnection.OnScanCompletedListener() {
 
                     public void onScanCompleted(String path, Uri uri) {
 
-                        Log.d("TAG", "onScanCompleted: ");
+
                     }
                 });
-        Log.d("TAG", "trimSuccess: ");
+
 
     }
 

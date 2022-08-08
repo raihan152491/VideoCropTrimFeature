@@ -85,7 +85,6 @@ public class CameraActivity extends AppCompatActivity {
     Pair[] pairs = new Pair[1];
 
 
-
     ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     ProcessCameraProvider cameraProvider;
 
@@ -93,9 +92,9 @@ public class CameraActivity extends AppCompatActivity {
     private VideoCapture videoCapture;
 
     boolean rotate = false;
-    boolean record=true;
-    boolean enableRecord=false;
-    boolean previewFile=false;
+    boolean record = true;
+    boolean enableRecord = false;
+    boolean previewFile = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,12 +112,6 @@ public class CameraActivity extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(getApplicationContext(), typedValue.resourceId));
         new WindowInsetsControllerCompat(getWindow(),
                 getWindow().getDecorView()).setAppearanceLightStatusBars(true);
-
-
-        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-        leftAnim = AnimationUtils.loadAnimation(this, R.anim.left_animation);
-        rightAnim = AnimationUtils.loadAnimation(this, R.anim.right_animation);
 
 
         initialize();
@@ -190,28 +183,24 @@ public class CameraActivity extends AppCompatActivity {
     }
 
 
-
     private void clickHandler() {
-
 
 
         binding.enableVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                enableRecord=!enableRecord;
+                enableRecord = !enableRecord;
 
-                if(enableRecord)
-                {
-                    binding.enableVideo.setColorFilter(ResourcesCompat.getColor(getResources(),R.color.red,null));
+                if (enableRecord) {
+                    binding.enableVideo.setColorFilter(ResourcesCompat.getColor(getResources(), R.color.red, null));
                     binding.captureText.setText("Record");
-                    binding.btnCapture.setCardBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.red,null));
-                }
-                else {
-                    binding.enableVideo.setColorFilter(ResourcesCompat.getColor(getResources(),R.color.white,null));
+                    binding.btnCapture.setCardBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.red, null));
+                } else {
+                    binding.enableVideo.setColorFilter(ResourcesCompat.getColor(getResources(), R.color.white, null));
 
                     binding.captureText.setText("Capture");
-                    binding.btnCapture.setCardBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.white,null));
+                    binding.btnCapture.setCardBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.white, null));
 
                 }
             }
@@ -222,27 +211,23 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!previewFile)
-                {
-                    if(enableRecord)
-                    {
-                        if(record)
-                        {
+                if (!previewFile) {
+                    if (enableRecord) {
+                        if (record) {
                             binding.captureText.setText("Stop");
                             Toast.makeText(activity, "Start Recording", Toast.LENGTH_SHORT).show();
                             captureVideo();
-                        }else {
+                        } else {
                             binding.captureText.setText("Record");
                             Toast.makeText(activity, "Stop Recording", Toast.LENGTH_SHORT).show();
                             videoCapture.stopRecording();
                         }
-                        record=!record;
-                    }else {
+                        record = !record;
+                    } else {
                         capturePhoto();
                     }
 
-                }
-                else {
+                } else {
                     backHandle();
                 }
 
@@ -301,7 +286,7 @@ public class CameraActivity extends AppCompatActivity {
         }
 
         long time = System.currentTimeMillis();
-        File filePath=new File(photoFolder,time+".mp4");
+        File filePath = new File(photoFolder, time + ".mp4");
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, time);
         contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "video/mp4");
@@ -362,7 +347,7 @@ public class CameraActivity extends AppCompatActivity {
         }
 
         long time = System.currentTimeMillis();
-        File filePath=new File(photoFolder,time+".jpg");
+        File filePath = new File(photoFolder, time + ".jpg");
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, time);
@@ -392,7 +377,7 @@ public class CameraActivity extends AppCompatActivity {
 
 
                         binding.imagePreview.setVisibility(View.VISIBLE);
-                        previewFile=true;
+                        previewFile = true;
                         Glide.with(binding.getRoot()).load(
                                 new File(filePath.getPath())
                         ).into(binding.imagePreview);
@@ -412,7 +397,6 @@ public class CameraActivity extends AppCompatActivity {
     public void onBackPressed() {
 
 
-
         backHandle();
 
 
@@ -422,13 +406,11 @@ public class CameraActivity extends AppCompatActivity {
 
         binding.preview.setVisibility(View.VISIBLE);
         //Help.showBottomDialog(this,this);
-        if(previewFile)
-        {
-            previewFile=false;
+        if (previewFile) {
+            previewFile = false;
             binding.imagePreview.setVisibility(View.GONE);
 
-        }
-        else {
+        } else {
             finish();
             activity.overridePendingTransition(R.anim.frag_fade_in, R.anim.frag_fade_out);
         }

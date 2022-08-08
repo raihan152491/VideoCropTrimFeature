@@ -302,7 +302,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
                             binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition() - startPoint);
 
 
-                            Log.d(TAG, "getCurrentPosition: "+binding.videoView.getCurrentPosition()+"start= "+startPoint);
+                            Log.d(TAG, "getCurrentPosition: " + binding.videoView.getCurrentPosition() + "start= " + startPoint);
 
 
                         }
@@ -325,7 +325,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
                 if (aBoolean) {
 
 
-                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition()-startPoint);
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition() - startPoint);
                     binding.videoView.start();
                     binding.play.setVisibility(View.GONE);
                     if (mTicker != null) {
@@ -335,7 +335,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
 
                 } else {
                     binding.videoView.pause();
-                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition()-startPoint);
+                    binding.videoSeekbar.setProgress(binding.videoView.getCurrentPosition() - startPoint);
 
                     binding.play.setVisibility(View.VISIBLE);
                     if (mHandler != null) {
@@ -351,7 +351,7 @@ public class VideoCropEditActivity extends AppCompatActivity {
             @Override
             public void onChanged(VideoModel videoModel) {
 
-                VideoCropTrimCutActivity.trimSync=false;
+                VideoCropTrimCutActivity.trimSync = false;
                 initComplete = false;
                 currentVideo = videoModel;
 
@@ -364,15 +364,15 @@ public class VideoCropEditActivity extends AppCompatActivity {
 
 
                 long duration = endPoint - startPoint;
-                long intervalInSecond = (duration ) / 6;
+                long intervalInSecond = (duration) / 6;
 
 
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage2, intervalInSecond*2);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage3, intervalInSecond*3);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage4, intervalInSecond*4);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage5, intervalInSecond*5);
-                Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage6, intervalInSecond*6);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage2, intervalInSecond * 2);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage3, intervalInSecond * 3);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage4, intervalInSecond * 4);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage5, intervalInSecond * 5);
+                Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage6, intervalInSecond * 6);
 
 
                 binding.textDuration.setVisibility(View.VISIBLE);
@@ -449,12 +449,12 @@ public class VideoCropEditActivity extends AppCompatActivity {
         long intervalInSecond = (duration) / 6;
 
 
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage2, intervalInSecond*2);
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage3, intervalInSecond*3);
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage4, intervalInSecond*4);
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage5, intervalInSecond*5);
-        Help.setVideoThumbnailFromPathGlide(context,currentVideo.getPath(), binding.thumbImage6, intervalInSecond*6);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage1, intervalInSecond);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage2, intervalInSecond * 2);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage3, intervalInSecond * 3);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage4, intervalInSecond * 4);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage5, intervalInSecond * 5);
+        Help.setVideoThumbnailFromPathGlide(context, currentVideo.getPath(), binding.thumbImage6, intervalInSecond * 6);
 
 
         binding.videoSeekbar.setMax((endPoint - startPoint));
@@ -463,7 +463,6 @@ public class VideoCropEditActivity extends AppCompatActivity {
         binding.play.setVisibility(View.VISIBLE);
         binding.videoView.seekTo(endPoint - startPoint);
         play.postValue(true);
-
 
 
     }
@@ -487,7 +486,6 @@ public class VideoCropEditActivity extends AppCompatActivity {
 
             binding.videoView.seekTo((int) lastProgress);
             binding.videoSeekbar.setProgress((int) (lastProgress - startPoint));
-
 
 
         }

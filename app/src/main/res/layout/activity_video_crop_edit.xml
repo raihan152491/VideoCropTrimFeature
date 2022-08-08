@@ -234,6 +234,7 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/play"
+        android:visibility="gone"
         android:layout_margin="8dp"
         android:layout_width="0dp"
 

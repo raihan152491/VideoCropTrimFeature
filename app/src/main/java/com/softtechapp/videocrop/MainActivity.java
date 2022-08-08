@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     Activity activity;
     Context context;
-    Pair[] pairs = new Pair[1];
+    Pair<View, String>[] pairs = new Pair[1];
 
 
     @Override
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 goNextActivity();
 
 
-
             }
         }, SPLASH_SCREEN);
 
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goNextActivity() {
-        Intent intent=new Intent(getApplicationContext(), VideoCropGalleryActivity.class);
+        Intent intent = new Intent(getApplicationContext(), VideoCropGalleryActivity.class);
 
         pairs[0] = new Pair<View, String>(binding.imageView, "toolBar");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
